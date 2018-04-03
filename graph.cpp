@@ -234,6 +234,81 @@ void Graph::make_example()
     add_interfaced_edge(9, 3, 7, 80.0);*/
 }
 
+void Graph::make_example2()
+{
+    m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
+
+    std::ifstream fichier("graphes2.txt",std::ios::in);
+    int nbarrette,nbsommet,nsommet,x,y;
+    float nombre;
+    std::string nom;
+    if (fichier)
+     {
+         fichier>>nbsommet;
+         fichier>>nbarrette;
+         for(int i=0;i<nbsommet;i++)
+         {
+             fichier>>nsommet;
+             fichier>>nombre;
+             fichier>>x;
+             fichier>>y;
+             fichier>>nom;
+             add_interfaced_vertex(nsommet,nombre,x,y,nom);
+
+         }
+         fichier.close();
+
+         std::ifstream fichier("grapha2.txt",std::ios::in);
+        int indice, sommet1,sommet2;
+        float poids;
+        for(int i=0; i<nbarrette;i++)
+         {
+
+        fichier>>indice,fichier>>sommet1,fichier>>sommet2,fichier>>poids;
+        add_interfaced_edge(indice,sommet1,sommet2,poids);
+
+         }
+         fichier.close();
+     }
+}
+
+void Graph::make_example3()
+{
+    m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
+
+    std::ifstream fichier("graphes3.txt",std::ios::in);
+    int nbarrette,nbsommet,nsommet,x,y;
+    float nombre;
+    std::string nom;
+    if (fichier)
+     {
+         fichier>>nbsommet;
+         fichier>>nbarrette;
+         for(int i=0;i<nbsommet;i++)
+         {
+             fichier>>nsommet;
+             fichier>>nombre;
+             fichier>>x;
+             fichier>>y;
+             fichier>>nom;
+             add_interfaced_vertex(nsommet,nombre,x,y,nom);
+
+         }
+         fichier.close();
+
+         std::ifstream fichier("grapha3.txt",std::ios::in);
+        int indice, sommet1,sommet2;
+        float poids;
+        for(int i=0; i<nbarrette;i++)
+         {
+
+        fichier>>indice,fichier>>sommet1,fichier>>sommet2,fichier>>poids;
+        add_interfaced_edge(indice,sommet1,sommet2,poids);
+
+         }
+         fichier.close();
+     }
+}
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 void Graph::update()
 {

@@ -56,3 +56,60 @@
 	<iostream>
 	"graph.h"
 
+1522800171 source:c:\users\ruben falvert\documents\projetinfo4\graph.cpp
+	"graph.h"
+	<sstream>
+	<fstream>
+
+1522795918 c:\users\ruben falvert\documents\projetinfo4\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1522539041 c:\users\ruben falvert\documents\projetinfo4\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222372 c:\users\ruben falvert\documents\projetinfo4\grman\grman_couleurs.h
+
+1522575424 c:\users\ruben falvert\documents\projetinfo4\grman\coords.h
+	<cmath>
+
+1522636616 c:\users\ruben falvert\documents\projetinfo4\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522575069 source:c:\users\ruben falvert\documents\projetinfo4\grman\coords.cpp
+	"coords.h"
+
+1522515823 source:c:\users\ruben falvert\documents\projetinfo4\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522636919 source:c:\users\ruben falvert\documents\projetinfo4\grman\widget.cpp
+	"widget.h"
+
+1522797983 source:c:\users\ruben falvert\documents\projetinfo4\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+

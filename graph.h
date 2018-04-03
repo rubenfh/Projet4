@@ -304,7 +304,8 @@ class Graph
         /// Cette méthode est à enlever et remplacer par un système
         /// de chargement de fichiers par exemple.
         void make_example();
-
+        void make_example2();
+        void make_example3();
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
