@@ -1,13 +1,13 @@
 12 20
-0 30.0 200 100 jaguar.jpg
-1 20.0 400 100 aigle.jpg
-2 50.0 200 300 singe.jpg
-3 10.0 400 300 tatar.jpg
-4 15.0 600 300 galago.jpg
-5 20.0 100 500 cameleon.jpg
-6 20.0 300 500 tapir.jpg
-7 70.0 500 500 fourmis.jpg
-8 30.0 100 600 serpent.jpg
-9 20.0 300 600 mygale.jpg
-10 10.0 500 600 tamanos.jpg
-11 40.0 600 600 mante.jpg
+0 30 268 137 jaguar.jpg
+1 20 745 -1 aigle.jpg
+2 50 18 288 singe.jpg
+3 10 -1 37 tatar.jpg
+4 15 -1 552 galago.jpg
+5 20 294 312 cameleon.jpg
+6 20 464 80 tapir.jpg
+7 70 649 247 fourmis.jpg
+8 30 232 553 serpent.jpg
+9 20 423 613 mygale.jpg
+10 10 752 598 tamanos.jpg
+11 40 506 398 mante.jpg

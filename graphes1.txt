@@ -1,4 +1,4 @@
 3 3
-0 20.0 200 100 dracaufeu.jpg
-1 10.0 400 100 florizard.jpg
-2 30.0 200 300 tortank.jpg
+0 20 196 96 dracaufeu.jpg
+1 10 478 90 florizard.jpg
+2 30 340 471 tortank.jpg

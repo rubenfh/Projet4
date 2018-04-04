@@ -3,12 +3,12 @@
 #include <fstream>
 namespace patch
 {
-    template < typename T > std::string to_string( const T& n )
-    {
-        std::ostringstream stm ;
-        stm << n ;
-        return stm.str() ;
-    }
+template < typename T > std::string to_string( const T& n )
+{
+    std::ostringstream stm ;
+    stm << n ;
+    return stm.str() ;
+}
 }
 
 /***************************************************
@@ -25,7 +25,7 @@ VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, in
 
     // Le slider de réglage de valeur
     m_top_box.add_child( m_slider_value );
-    m_slider_value.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
+    m_slider_value.set_range(0.0, 100.0);  // Valeurs arbitraires, à adapter...
     m_slider_value.set_dim(20,80);
     m_slider_value.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
 
@@ -103,7 +103,7 @@ EdgeInterface::EdgeInterface(Vertex& from, Vertex& to)
 
     // Le slider de réglage de valeur
     m_box_edge.add_child( m_slider_weight );
-    m_slider_weight.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
+    m_slider_weight.set_range(0.0, 100.0);  // Valeurs arbitraires, à adapter...
     m_slider_weight.set_dim(16,40);
     m_slider_weight.set_gravity_y(grman::GravityY::Up);
 
@@ -176,33 +176,34 @@ void Graph::make_example()
     float nombre;
     std::string nom;
     if (fichier)
-     {
-         fichier>>nbsommet;
-         fichier>>nbarrette;
-         for(int i=0;i<nbsommet;i++)
-         {
-             fichier>>nsommet;
-             fichier>>nombre;
-             fichier>>x;
-             fichier>>y;
-             fichier>>nom;
-             add_interfaced_vertex(nsommet,nombre,x,y,nom);
+    {
+        fichier>>nbsommet;
+        fichier>>nbarrette;
+        for(int i=0; i<nbsommet; i++)
+        {
+            fichier>>nsommet;
+            fichier>>nombre;
+            fichier>>x;
+            fichier>>y;
+            fichier>>nom;
+            add_interfaced_vertex(nsommet,nombre,x,y,nom);
 
-         }
-         fichier.close();
+        }
+        fichier.close();
 
-         std::ifstream fichier("grapha1.txt",std::ios::in);
+        std::ifstream fichier("grapha1.txt",std::ios::in);
         int indice, sommet1,sommet2;
         float poids;
-        for(int i=0; i<nbarrette;i++)
-         {
+        for(int i=0; i<nbarrette; i++)
+        {
 
-        fichier>>indice,fichier>>sommet1,fichier>>sommet2,fichier>>poids;
-        add_interfaced_edge(indice,sommet1,sommet2,poids);
+            fichier>>indice,fichier>>sommet1,fichier>>sommet2,fichier>>poids;
+            add_interfaced_edge(indice,sommet1,sommet2,poids);
 
-         }
-         fichier.close();
-     }
+        }
+        fichier.close();
+
+    }
 
 
 
@@ -211,27 +212,27 @@ void Graph::make_example()
 
     /// Les sommets doivent être définis avant les arcs
     // Ajouter le sommet d'indice 0 de valeur 30 en x=200 et y=100 avec l'image clown1.jpg etc...
-   /* add_interfaced_vertex(0, 30.0, 200, 100, "clown1.jpg");
-    add_interfaced_vertex(1, 60.0, 400, 100, "clown2.jpg");
-    add_interfaced_vertex(2,  50.0, 200, 300, "clown3.jpg");
-    add_interfaced_vertex(3,  0.0, 400, 300, "clown4.jpg");
-    add_interfaced_vertex(4,  100.0, 600, 300, "clown5.jpg");
-    add_interfaced_vertex(5,  0.0, 100, 500, "bad_clowns_xx3xx.jpg", 0);
-    add_interfaced_vertex(6,  0.0, 300, 500, "bad_clowns_xx3xx.jpg", 1);
-    add_interfaced_vertex(7,  0.0, 500, 500, "bad_clowns_xx3xx.jpg", 2);*/
+    /* add_interfaced_vertex(0, 30.0, 200, 100, "clown1.jpg");
+     add_interfaced_vertex(1, 60.0, 400, 100, "clown2.jpg");
+     add_interfaced_vertex(2,  50.0, 200, 300, "clown3.jpg");
+     add_interfaced_vertex(3,  0.0, 400, 300, "clown4.jpg");
+     add_interfaced_vertex(4,  100.0, 600, 300, "clown5.jpg");
+     add_interfaced_vertex(5,  0.0, 100, 500, "bad_clowns_xx3xx.jpg", 0);
+     add_interfaced_vertex(6,  0.0, 300, 500, "bad_clowns_xx3xx.jpg", 1);
+     add_interfaced_vertex(7,  0.0, 500, 500, "bad_clowns_xx3xx.jpg", 2);*/
 
     /// Les arcs doivent être définis entre des sommets qui existent !
     // AJouter l'arc d'indice 0, allant du sommet 1 au sommet 2 de poids 50 etc...
-   /* add_interfaced_edge(0, 1, 2, 50.0);
-    add_interfaced_edge(1, 0, 1, 50.0);
-    add_interfaced_edge(2, 1, 3, 75.0);
-    add_interfaced_edge(3, 4, 1, 25.0);
-    add_interfaced_edge(4, 6, 3, 25.0);
-    add_interfaced_edge(5, 7, 3, 25.0);
-    add_interfaced_edge(6, 3, 4, 0.0);
-    add_interfaced_edge(7, 2, 0, 100.0);
-    add_interfaced_edge(8, 5, 2, 20.0);
-    add_interfaced_edge(9, 3, 7, 80.0);*/
+    /* add_interfaced_edge(0, 1, 2, 50.0);
+     add_interfaced_edge(1, 0, 1, 50.0);
+     add_interfaced_edge(2, 1, 3, 75.0);
+     add_interfaced_edge(3, 4, 1, 25.0);
+     add_interfaced_edge(4, 6, 3, 25.0);
+     add_interfaced_edge(5, 7, 3, 25.0);
+     add_interfaced_edge(6, 3, 4, 0.0);
+     add_interfaced_edge(7, 2, 0, 100.0);
+     add_interfaced_edge(8, 5, 2, 20.0);
+     add_interfaced_edge(9, 3, 7, 80.0);*/
 }
 
 void Graph::make_example2()
@@ -243,33 +244,33 @@ void Graph::make_example2()
     float nombre;
     std::string nom;
     if (fichier)
-     {
-         fichier>>nbsommet;
-         fichier>>nbarrette;
-         for(int i=0;i<nbsommet;i++)
-         {
-             fichier>>nsommet;
-             fichier>>nombre;
-             fichier>>x;
-             fichier>>y;
-             fichier>>nom;
-             add_interfaced_vertex(nsommet,nombre,x,y,nom);
+    {
+        fichier>>nbsommet;
+        fichier>>nbarrette;
+        for(int i=0; i<nbsommet; i++)
+        {
+            fichier>>nsommet;
+            fichier>>nombre;
+            fichier>>x;
+            fichier>>y;
+            fichier>>nom;
+            add_interfaced_vertex(nsommet,nombre,x,y,nom);
 
-         }
-         fichier.close();
+        }
+        fichier.close();
 
-         std::ifstream fichier("grapha2.txt",std::ios::in);
+        std::ifstream fichier("grapha2.txt",std::ios::in);
         int indice, sommet1,sommet2;
         float poids;
-        for(int i=0; i<nbarrette;i++)
-         {
+        for(int i=0; i<nbarrette; i++)
+        {
 
-        fichier>>indice,fichier>>sommet1,fichier>>sommet2,fichier>>poids;
-        add_interfaced_edge(indice,sommet1,sommet2,poids);
+            fichier>>indice,fichier>>sommet1,fichier>>sommet2,fichier>>poids;
+            add_interfaced_edge(indice,sommet1,sommet2,poids);
 
-         }
-         fichier.close();
-     }
+        }
+        fichier.close();
+    }
 }
 
 void Graph::make_example3()
@@ -281,33 +282,33 @@ void Graph::make_example3()
     float nombre;
     std::string nom;
     if (fichier)
-     {
-         fichier>>nbsommet;
-         fichier>>nbarrette;
-         for(int i=0;i<nbsommet;i++)
-         {
-             fichier>>nsommet;
-             fichier>>nombre;
-             fichier>>x;
-             fichier>>y;
-             fichier>>nom;
-             add_interfaced_vertex(nsommet,nombre,x,y,nom);
+    {
+        fichier>>nbsommet;
+        fichier>>nbarrette;
+        for(int i=0; i<nbsommet; i++)
+        {
+            fichier>>nsommet;
+            fichier>>nombre;
+            fichier>>x;
+            fichier>>y;
+            fichier>>nom;
+            add_interfaced_vertex(nsommet,nombre,x,y,nom);
 
-         }
-         fichier.close();
+        }
+        fichier.close();
 
-         std::ifstream fichier("grapha3.txt",std::ios::in);
+        std::ifstream fichier("grapha3.txt",std::ios::in);
         int indice, sommet1,sommet2;
         float poids;
-        for(int i=0; i<nbarrette;i++)
-         {
+        for(int i=0; i<nbarrette; i++)
+        {
 
-        fichier>>indice,fichier>>sommet1,fichier>>sommet2,fichier>>poids;
-        add_interfaced_edge(indice,sommet1,sommet2,poids);
+            fichier>>indice,fichier>>sommet1,fichier>>sommet2,fichier>>poids;
+            add_interfaced_edge(indice,sommet1,sommet2,poids);
 
-         }
-         fichier.close();
-     }
+        }
+        fichier.close();
+    }
 }
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 void Graph::update()
@@ -325,10 +326,23 @@ void Graph::update()
 
     for (auto &elt : m_vertices)
         elt.second.post_update();
-
     for (auto &elt : m_edges)
         elt.second.post_update();
 
+    if (key[KEY_C])
+    {
+        savecoord1( m_vertices);
+    }
+
+    if (key[KEY_V])
+    {
+        savecoord2(m_vertices);
+    }
+
+    if (key[KEY_B])
+    {
+        savecoord3(m_vertices);
+    }
 }
 
 /// Aide à l'ajout de sommets interfacés
@@ -365,5 +379,134 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     EdgeInterface *ei = new EdgeInterface(m_vertices[id_vert1], m_vertices[id_vert2]);
     m_interface->m_main_box.add_child(ei->m_top_edge);
     m_edges[idx] = Edge(weight, ei);
+    m_edges[idx].m_from=id_vert1;
+    m_edges[idx].m_to=id_vert2;
+    m_vertices[id_vert1].m_out.push_back(idx);
+    m_vertices[id_vert2].m_out.push_back(idx);
+
+
 }
 
+
+void Graph::savecoord1(std::map<int, Vertex> m_vertices)
+{
+    std::string buff;
+    std::ofstream fichier("graphes1.txt",std::ios::out|std::ios::trunc);
+
+    fichier<<m_vertices.size();
+    fichier<< " ";
+    fichier<<m_edges.size();
+    fichier<<std::endl;
+
+    for(unsigned int i=0;i<m_vertices.size();i++)
+    {
+        fichier<<i<<" "<<m_vertices[i].m_value<<" "<< m_vertices[i].m_interface->m_top_box.get_posx()<<" "<<m_vertices[i].m_interface->m_top_box.get_posy()<< " "<<m_vertices[i].m_interface->m_img.m_pic_name;
+        fichier<<std::endl;
+    }
+    fichier.close();
+
+    std::ofstream fichier1("graphea1.txt",std::ios::out|std::ios::trunc);
+    for(unsigned int i=0;i<m_edges.size();i++)
+    {
+        fichier<< i << " "<< m_edges[i].m_from<< " " << m_edges[i].m_to<< " " << m_edges[i].m_weight;
+        fichier<< std::endl;
+    }
+    fichier1.close();
+}
+
+void Graph::savecoord2(std::map<int, Vertex> m_vertices)
+{
+    std::string buff;
+    std::ofstream fichier("graphes2.txt",std::ios::out|std::ios::trunc);
+
+    fichier<<m_vertices.size();
+    fichier<< " ";
+    fichier<<m_edges.size();
+    fichier<<std::endl;
+
+    for(unsigned int i=0;i<m_vertices.size();i++)
+    {
+        fichier<<i<<" "<<m_vertices[i].m_value<<" "<< m_vertices[i].m_interface->m_top_box.get_posx()<<" "<<m_vertices[i].m_interface->m_top_box.get_posy()<< " "<<m_vertices[i].m_interface->m_img.m_pic_name;
+        fichier<<std::endl;
+    }
+    fichier.close();
+
+    std::ofstream fichier1("graphea2.txt",std::ios::out|std::ios::trunc);
+    for(unsigned int i=0;i<m_edges.size();i++)
+    {
+        fichier<< i << " "<< m_edges[i].m_from<< " " << m_edges[i].m_to<< " " << m_edges[i].m_weight;
+        fichier<< std::endl;
+    }
+    fichier1.close();
+}
+
+void Graph::savecoord3(std::map<int, Vertex> m_vertices)
+{
+    std::string buff;
+    std::ofstream fichier("graphes3.txt",std::ios::out|std::ios::trunc);
+
+    fichier<<m_vertices.size();
+    fichier<< " ";
+    fichier<<m_edges.size();
+    fichier<<std::endl;
+
+    for(unsigned int i=0;i<m_vertices.size();i++)
+    {
+        fichier<<i<<" "<<m_vertices[i].m_value<<" "<< m_vertices[i].m_interface->m_top_box.get_posx()<<" "<<m_vertices[i].m_interface->m_top_box.get_posy()<< " "<<m_vertices[i].m_interface->m_img.m_pic_name;
+        fichier<<std::endl;
+    }
+    fichier.close();
+
+    std::ofstream fichier1("graphea3.txt",std::ios::out|std::ios::trunc);
+    for(unsigned int i=0;i<m_edges.size();i++)
+    {
+        fichier<< i << " "<< m_edges[i].m_from<< " " << m_edges[i].m_to<< " " << m_edges[i].m_weight;
+        fichier<< std::endl;
+    }
+    fichier1.close();
+}
+
+/// eidx index of edge to remove
+void Graph::test_remove_edge(int eidx)
+{
+/// référence vers le Edge à enlever
+    Edge &remed=m_edges.at(eidx);
+
+    std::cout << "Removing edge " << eidx << " " << remed.m_from << "->" << remed.m_to << " " << remed.m_weight << std::endl;
+
+/// Tester la cohérence : nombre d'arc entrants et sortants des sommets 1 et 2
+    std::cout << m_vertices[remed.m_from].m_in.size() << " " << m_vertices[remed.m_from].m_out.size() << std::endl;
+    std::cout << m_vertices[remed.m_to].m_in.size() << " " << m_vertices[remed.m_to].m_out.size() << std::endl;
+    std::cout << m_edges.size() << std::endl;
+
+/// test : on a bien des éléments interfacés
+    if (m_interface && remed.m_interface)
+    {
+/// Ne pas oublier qu'on a fait ça à l'ajout de l'arc :
+        /* EdgeInterface *ei = new EdgeInterface(m_vertices[id_vert1], m_vertices[id_vert2]); */
+        /* m_interface->m_main_box.add_child(ei->m_top_edge); */
+        /* m_edges[idx] = Edge(weight, ei); */
+/// Le new EdgeInterface ne nécessite pas de delete car on a un shared_ptr
+/// Le Edge ne nécessite pas non plus de delete car on n'a pas fait de new (sémantique par valeur)
+/// mais il faut bien enlever le conteneur d'interface m_top_edge de l'arc de la main_box du graphe
+        m_interface->m_main_box.remove_child( remed.m_interface->m_top_edge );
+    }
+
+/// Il reste encore à virer l'arc supprimé de la liste des entrants et sortants des 2 sommets to et from !
+/// References sur les listes de edges des sommets from et to
+    std::vector<int> &vefrom = m_vertices[remed.m_from].m_out;
+    std::vector<int> &veto = m_vertices[remed.m_to].m_in;
+    vefrom.erase( std::remove( vefrom.begin(), vefrom.end(), eidx ), vefrom.end() );
+    veto.erase( std::remove( veto.begin(), veto.end(), eidx ), veto.end() );
+
+/// Le Edge ne nécessite pas non plus de delete car on n'a pas fait de new (sémantique par valeur)
+/// Il suffit donc de supprimer l'entrée de la map pour supprimer à la fois l'Edge et le EdgeInterface
+/// mais malheureusement ceci n'enlevait pas automatiquement l'interface top_edge en tant que child de main_box !
+    m_edges.erase( eidx );
+
+/// Tester la cohérence : nombre d'arc entrants et sortants des sommets 1 et 2
+    std::cout << m_vertices[remed.m_from].m_in.size() << " " << m_vertices[remed.m_from].m_out.size() << std::endl;
+    std::cout << m_vertices[remed.m_to].m_in.size() << " " << m_vertices[remed.m_to].m_out.size() << std::endl;
+    std::cout << m_edges.size() << std::endl;
+
+}

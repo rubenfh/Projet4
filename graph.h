@@ -90,7 +90,7 @@ class VertexInterface
     friend class EdgeInterface;
     friend class Graph;
 
-    private :
+    public :
 
         /// Les widgets de l'interface. N'oubliez pas qu'il ne suffit pas de déclarer
         /// ici un widget pour qu'il apparaisse, il faut aussi le mettre en place et
@@ -114,7 +114,7 @@ class VertexInterface
         // Une boite pour le label précédent
         grman::WidgetText m_box_label_idx;
 
-    public :
+
 
         // Le constructeur met en place les éléments de l'interface
         // voir l'implémentation dans le .cpp
@@ -131,7 +131,7 @@ class Vertex
     friend class Edge;
     friend class EdgeInterface;
 
-    private :
+    public:
         /// liste des indices des arcs arrivant au sommet : accès aux prédécesseurs
         std::vector<int> m_in;
 
@@ -149,7 +149,7 @@ class Vertex
         // VertexInterface * m_interface = nullptr;
 
 
-    public:
+
 
         /// Les constructeurs sont à compléter selon vos besoin...
         /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
@@ -272,6 +272,7 @@ class GraphInterface
         // Le constructeur met en place les éléments de l'interface
         // voir l'implémentation dans le .cpp
         GraphInterface(int x, int y, int w, int h);
+
 };
 
 
@@ -300,12 +301,19 @@ class Graph
         void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0);
 
         /// Méthode spéciale qui construit un graphe arbitraire (démo)
-        /// Voir implémentation dans le .cpp
+        /// Voir implémentationC:\Users\Ruben Falvert\Documents\ProjetInfo4\graph.cpp dans le .cpp
         /// Cette méthode est à enlever et remplacer par un système
         /// de chargement de fichiers par exemple.
         void make_example();
         void make_example2();
         void make_example3();
+
+        void savecoord1(std::map<int, Vertex> m_vertices);
+        void savecoord2(std::map<int, Vertex> m_vertices);
+        void savecoord3(std::map<int, Vertex> m_vertices);
+
+
+        void test_remove_edge(int eidx);
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
