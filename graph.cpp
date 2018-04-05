@@ -328,6 +328,15 @@ void Graph::update()
         elt.second.post_update();
     for (auto &elt : m_edges)
         elt.second.post_update();
+    if(key[KEY_S])
+    {
+        Supprimer();
+    }
+
+    if(key[KEY_Q])
+    {
+        Ajouter1();
+    }
 
     if (key[KEY_C])
     {
@@ -398,7 +407,7 @@ void Graph::savecoord1(std::map<int, Vertex> m_vertices)
     fichier<<m_edges.size();
     fichier<<std::endl;
 
-    for(unsigned int i=0;i<m_vertices.size();i++)
+    for(unsigned int i=0; i<m_vertices.size(); i++)
     {
         fichier<<i<<" "<<m_vertices[i].m_value<<" "<< m_vertices[i].m_interface->m_top_box.get_posx()<<" "<<m_vertices[i].m_interface->m_top_box.get_posy()<< " "<<m_vertices[i].m_interface->m_img.m_pic_name;
         fichier<<std::endl;
@@ -406,7 +415,7 @@ void Graph::savecoord1(std::map<int, Vertex> m_vertices)
     fichier.close();
 
     std::ofstream fichier1("graphea1.txt",std::ios::out|std::ios::trunc);
-    for(unsigned int i=0;i<m_edges.size();i++)
+    for(unsigned int i=0; i<m_edges.size(); i++)
     {
         fichier<< i << " "<< m_edges[i].m_from<< " " << m_edges[i].m_to<< " " << m_edges[i].m_weight;
         fichier<< std::endl;
@@ -424,7 +433,7 @@ void Graph::savecoord2(std::map<int, Vertex> m_vertices)
     fichier<<m_edges.size();
     fichier<<std::endl;
 
-    for(unsigned int i=0;i<m_vertices.size();i++)
+    for(unsigned int i=0; i<m_vertices.size(); i++)
     {
         fichier<<i<<" "<<m_vertices[i].m_value<<" "<< m_vertices[i].m_interface->m_top_box.get_posx()<<" "<<m_vertices[i].m_interface->m_top_box.get_posy()<< " "<<m_vertices[i].m_interface->m_img.m_pic_name;
         fichier<<std::endl;
@@ -432,7 +441,7 @@ void Graph::savecoord2(std::map<int, Vertex> m_vertices)
     fichier.close();
 
     std::ofstream fichier1("graphea2.txt",std::ios::out|std::ios::trunc);
-    for(unsigned int i=0;i<m_edges.size();i++)
+    for(unsigned int i=0; i<m_edges.size(); i++)
     {
         fichier<< i << " "<< m_edges[i].m_from<< " " << m_edges[i].m_to<< " " << m_edges[i].m_weight;
         fichier<< std::endl;
@@ -450,7 +459,7 @@ void Graph::savecoord3(std::map<int, Vertex> m_vertices)
     fichier<<m_edges.size();
     fichier<<std::endl;
 
-    for(unsigned int i=0;i<m_vertices.size();i++)
+    for(unsigned int i=0; i<m_vertices.size(); i++)
     {
         fichier<<i<<" "<<m_vertices[i].m_value<<" "<< m_vertices[i].m_interface->m_top_box.get_posx()<<" "<<m_vertices[i].m_interface->m_top_box.get_posy()<< " "<<m_vertices[i].m_interface->m_img.m_pic_name;
         fichier<<std::endl;
@@ -458,12 +467,77 @@ void Graph::savecoord3(std::map<int, Vertex> m_vertices)
     fichier.close();
 
     std::ofstream fichier1("graphea3.txt",std::ios::out|std::ios::trunc);
-    for(unsigned int i=0;i<m_edges.size();i++)
+    for(unsigned int i=0; i<m_edges.size(); i++)
     {
         fichier<< i << " "<< m_edges[i].m_from<< " " << m_edges[i].m_to<< " " << m_edges[i].m_weight;
         fichier<< std::endl;
     }
     fichier1.close();
+}
+
+void Graph::Supprimer()
+{
+    int n;
+    m_interface->m_top_box.update();
+
+
+    std::cout <<"quel sommet voulez vous suprimer ?" <<std::endl;
+    std::cin>>n;
+
+
+    for(auto& elem:m_edges)
+    {
+        if((elem.second.m_to==n)||(elem.second.m_from==n))
+        {
+            test_remove_edge(elem.first);
+
+        }
+    }
+}
+void Graph::Ajouter1()
+{
+    unsigned int n=0,sommet1,sommet2;
+    float poid;
+    bool ok=false;
+    //1std::ofstream fichier1("grapha1.txt",std::ios::app);
+    do
+    {
+        if(m_edges.count(n)==1)
+        {
+            n++;
+        }
+        else
+        {
+            ok=true;
+        }
+    }
+    while(!ok);
+
+
+    //fichier1<<n<<" ";
+    do
+    {
+        std::cout<<"choisir un sommet de départ"<<std::endl;
+        std::cin>> sommet1;
+
+        std::cout<<"choisir un sommet d'arrivé"<<std::endl;
+        std::cin>>sommet2;
+    }
+    while((sommet1==sommet2));
+
+    //fichier1<<sommet1<<" ",fichier1<<sommet2<<" ";
+    do
+    {
+        std::cout<<"saisissez un poid"<<std::endl;
+        std::cin >>poid;
+    }
+    while((poid<0)||(poid>100));
+    //fichier1<<poid<<std::endl;
+    add_interfaced_edge(n,sommet1,sommet2,poid);
+
+
+    //fichier1.close();
+
 }
 
 /// eidx index of edge to remove
@@ -510,3 +584,5 @@ void Graph::test_remove_edge(int eidx)
     std::cout << m_edges.size() << std::endl;
 
 }
+
+

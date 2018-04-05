@@ -2,7 +2,42 @@
 #include <iostream>
 
 #include "graph.h"
+void menu()
+{
+    BITMAP* fe;
+    BITMAP* buffer;
+    fe=  load_bitmap("menu.jpg",NULL);
+    buffer= create_bitmap(SCREEN_W,SCREEN_H);
+    blit(fe,buffer,0,0,0,0,800,600);
+    blit(buffer,screen,0,0,0,0,800,600);
+    grman::set_pictures_path("pics");
+    bool x = false;
+    Graph g;
 
+    while( !key[KEY_ESC])
+    {
+        if(mouse_b&1 && 308 < mouse_x && mouse_x <507 && 86<mouse_y && mouse_y < 138)
+        {
+
+            g.make_example();
+            x=true;
+            while(x==true)
+            {
+
+                g.update();
+                grman::mettre_a_jour();
+
+                if(key[KEY_BACKSLASH])
+                {
+                    x=false;
+                    blit(fe,buffer,0,0,0,0,800,600);
+                    blit(buffer,fe,0,0,0,0,800,600);
+                }
+            }
+        }
+
+    }
+}
 int main()
 {
     /// A appeler en 1er avant d'instancier des objets graphiques etc...
@@ -14,6 +49,7 @@ int main()
     /// Un exemple de graphe
     int choix1;
     Graph g;
+
     do
     {
         std::cout<<"Choix : ";

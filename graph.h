@@ -312,8 +312,10 @@ class Graph
         void savecoord2(std::map<int, Vertex> m_vertices);
         void savecoord3(std::map<int, Vertex> m_vertices);
 
-
+        void Supprimer();
         void test_remove_edge(int eidx);
+
+        void Ajouter1();
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
