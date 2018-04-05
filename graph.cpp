@@ -155,6 +155,69 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_tool_box.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
     m_tool_box.set_bg_color(BLANCBLEU);
 
+    ///MENU
+    m_tool_box.add_child(m_box_menu);
+    m_box_menu.set_dim(74,74);
+    m_box_menu.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
+    m_box_menu.set_bg_color(ROUGECLAIR);
+
+    m_box_menu.add_child( m_bouton1 );
+    m_bouton1.set_frame(10,10,59,59);
+    m_bouton1.set_bg_color(ROUGESOMBRE);
+
+    m_bouton1.add_child(m_bouton1_label);
+    m_bouton1_label.set_message("MENU");
+
+
+    ///SAUVE
+
+    m_tool_box.add_child(m_box_sauve);
+    m_box_sauve.set_dim(74,74);
+    m_box_sauve.set_gravity_x(grman::GravityX::Left);
+    m_box_sauve.set_posy(80);
+    m_box_sauve.set_bg_color(VERTCLAIR);
+
+    m_box_sauve.add_child( m_bouton2 );
+    m_bouton2.set_frame(10,10,59,59);
+    m_bouton2.set_bg_color(VERTSOMBRE);
+
+    m_bouton2.add_child(m_bouton2_label);
+    m_bouton2_label.set_message("SAVE");
+
+
+    ///ADD
+    m_tool_box.add_child(m_box_add);
+    m_box_add.set_dim(74,74);
+    m_box_add.set_gravity_x(grman::GravityX::Left);
+    m_box_add.set_bg_color(JAUNECLAIR);
+    m_box_add.set_posy(160);
+
+    m_box_add.add_child( m_bouton3 );
+    m_bouton3.set_frame(10,10,59,59);
+    m_bouton3.set_bg_color(JAUNESOMBRE);
+
+    m_bouton3.add_child(m_bouton3_label);
+    m_bouton3_label.set_message("ADD");
+
+
+    ///REMOVE
+
+    m_tool_box.add_child(m_box_remove);
+    m_box_remove.set_dim(74,74);
+    m_box_remove.set_gravity_x(grman::GravityX::Left);
+    m_box_remove.set_posy(240);
+    m_box_remove.set_bg_color(ORANGECLAIR);
+
+    m_box_remove.add_child( m_bouton4 );
+    m_bouton4.set_frame(10,10,59,59);
+    m_bouton4.set_bg_color(ORANGESOMBRE);
+
+    m_bouton4.add_child(m_bouton4_label);
+    m_bouton4_label.set_message("REMOVE");
+
+
+
+
     m_top_box.add_child(m_main_box);
     m_main_box.set_dim(908,720);
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
@@ -313,6 +376,8 @@ void Graph::make_example3()
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 void Graph::update()
 {
+
+
     if (!m_interface)
         return;
 
@@ -328,7 +393,8 @@ void Graph::update()
         elt.second.post_update();
     for (auto &elt : m_edges)
         elt.second.post_update();
-    if(key[KEY_S])
+m_top_box.update();
+    if(m_interface -> m_bouton4.clicked())
     {
         Supprimer();
     }
@@ -478,7 +544,7 @@ void Graph::savecoord3(std::map<int, Vertex> m_vertices)
 void Graph::Supprimer()
 {
     int n;
-    m_interface->m_top_box.update();
+    //m_interface->m_top_box.update();
 
 
     std::cout <<"quel sommet voulez vous suprimer ?" <<std::endl;

@@ -263,6 +263,24 @@ class GraphInterface
         /// Dans cette boite seront ajoutés des boutons de contrôle etc...
         grman::WidgetBox m_tool_box;
 
+        grman::WidgetBox m_box_menu;
+        grman::WidgetButton m_bouton1;
+        grman::WidgetText m_bouton1_label;
+
+        grman::WidgetBox m_box_sauve;
+        grman::WidgetButton m_bouton2;
+        grman::WidgetText m_bouton2_label;
+
+        grman::WidgetBox m_box_add;
+        grman::WidgetButton m_bouton3;
+        grman::WidgetText m_bouton3_label;
+
+        grman::WidgetBox m_box_remove;
+        grman::WidgetButton m_bouton4;
+        grman::WidgetText m_bouton4_label;
+
+
+
 
         // A compléter éventuellement par des widgets de décoration ou
         // d'édition (boutons ajouter/enlever ...)
@@ -278,7 +296,15 @@ class GraphInterface
 
 class Graph
 {
+    friend class GraphInterface;
+
     private :
+
+    grman::WidgetBox m_top_box;
+    grman::WidgetButton m_bouton1;
+    grman::WidgetButton m_bouton2;
+    grman::WidgetButton m_bouton3;
+    grman::WidgetButton m_bouton4;
 
         /// La "liste" des arêtes
         std::map<int, Edge> m_edges;

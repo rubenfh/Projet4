@@ -113,3 +113,60 @@
 	<iostream>
 	"graph.h"
 
+1522948900 source:c:\users\wilfrid\desktop\projet4-master\projet4-master\graph.cpp
+	"graph.h"
+	<sstream>
+	<fstream>
+
+1522948305 c:\users\wilfrid\desktop\projet4-master\projet4-master\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1522926164 c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522926164 c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\grman_couleurs.h
+
+1522926164 c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\coords.h
+	<cmath>
+
+1522926164 c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522926164 source:c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\coords.cpp
+	"coords.h"
+
+1522926164 source:c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522926164 source:c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\widget.cpp
+	"widget.h"
+
+1522944636 source:c:\users\wilfrid\desktop\projet4-master\projet4-master\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+

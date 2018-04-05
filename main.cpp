@@ -73,6 +73,16 @@ int main()
         break;
     }
 
+    BITMAP* fe;
+    BITMAP* buffer;
+    fe=  load_bitmap("pics/menu.jpg",NULL);
+    buffer= create_bitmap(SCREEN_W,SCREEN_H);
+    blit(fe,buffer,0,0,0,0,800,600);
+    blit(buffer,screen,0,0,0,0,800,600);
+
+    bool x = false;
+
+    grman::set_pictures_path("pics");
 
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
