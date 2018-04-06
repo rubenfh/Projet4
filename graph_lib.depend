@@ -56,12 +56,17 @@
 	<iostream>
 	"graph.h"
 
-1522893561 source:c:\users\ruben falvert\documents\projetinfo4\graph.cpp
+1523042953 source:c:\users\ruben falvert\documents\projetinfo4\graph.cpp
 	"graph.h"
 	<sstream>
 	<fstream>
+	<stack>
+	<queue>
+	<set>
 
-1522894311 c:\users\ruben falvert\documents\projetinfo4\graph.h
+1523041755 c:\users\ruben falvert\documents\projetinfo4\graph.h
+	<list>
+	<stack>
 	<vector>
 	<map>
 	<string>
@@ -108,7 +113,7 @@
 1522636919 source:c:\users\ruben falvert\documents\projetinfo4\grman\widget.cpp
 	"widget.h"
 
-1522874695 source:c:\users\ruben falvert\documents\projetinfo4\main.cpp
+1523042989 source:c:\users\ruben falvert\documents\projetinfo4\main.cpp
 	"grman/grman.h"
 	<iostream>
 	"graph.h"

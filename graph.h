@@ -1,5 +1,7 @@
 #ifndef GRAPH_H_INCLUDED
 #define GRAPH_H_INCLUDED
+#include <list>
+#include <stack>
 
 /**************************************************************
     Ici sont proposées 3 classes fondamentales
@@ -132,6 +134,9 @@ class Vertex
     friend class EdgeInterface;
 
     public:
+        ///on rajoute un compteur et un marqueur
+        bool m_marqueur;
+        int m_cmpt;
         /// liste des indices des arcs arrivant au sommet : accès aux prédécesseurs
         std::vector<int> m_in;
 
@@ -291,7 +296,7 @@ class Graph
 
 
     public:
-
+        std::list <int> *adj;
         /// Les constructeurs sont à compléter selon vos besoin...
         /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
         Graph (GraphInterface *interface=nullptr) :
@@ -314,9 +319,17 @@ class Graph
 
         void Supprimer();
         void test_remove_edge(int eidx);
+        int newcmpt();
+
 
         void Ajouter1();
+        void erase1edge(int eidx);
 
+        void initMatriceAdj();
+        void SCC();
+        void SCCutil(int u, int disc[], int low[], std::stack<int> *st,bool stackmember[]);
+
+        void PartieFonctionnelle();
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
 };

@@ -1,6 +1,10 @@
 #include "graph.h"
 #include <sstream>
 #include <fstream>
+#include <stack>
+#include <queue>
+#include <set>
+using namespace std;
 namespace patch
 {
 template < typename T > std::string to_string( const T& n )
@@ -352,6 +356,10 @@ void Graph::update()
     {
         savecoord3(m_vertices);
     }
+    if(key[KEY_E])
+    {initMatriceAdj();
+     SCC();
+    }
 }
 
 /// Aide à l'ajout de sommets interfacés
@@ -520,7 +528,7 @@ void Graph::Ajouter1()
         std::cout<<"choisir un sommet de départ"<<std::endl;
         std::cin>> sommet1;
 
-        std::cout<<"choisir un sommet d'arrivé"<<std::endl;
+        std::cout<<"choisir un sommet d'arrive"<<std::endl;
         std::cin>>sommet2;
     }
     while((sommet1==sommet2));
@@ -539,6 +547,341 @@ void Graph::Ajouter1()
     //fichier1.close();
 
 }
+
+void Graph::initMatriceAdj()
+{
+
+    adj= new list <int> [m_edges.size()];
+
+    for(int i=0;i<m_edges.size();i++)
+    {
+        adj[m_edges[i].m_from].push_back(m_edges[i].m_to);
+    }
+}
+void Graph::SCCutil(int u, int disc[], int low[], stack<int> *st,bool stackmember[])
+{
+
+
+static int time = 0;
+
+    // Initialize discovery time and low value
+    disc[u] = low[u] = ++time;
+    st->push(u);
+    stackmember[u] = true;
+
+    // Go through all vertices adjacent to this
+    list<int>::iterator i;
+    for (i = adj[u].begin(); i != adj[u].end(); ++i)
+    {
+        int v = *i;  // v is current adjacent of 'u'
+
+        // If v is not visited yet, then recur for it
+        if (disc[v] == -1)
+        {
+            SCCutil(v, disc, low, st, stackmember);
+
+            // Check if the subtree rooted with 'v' has a
+            // connection to one of the ancestors of 'u'
+            // Case 1 (per above discussion on Disc and Low value)
+            low[u]  = min(low[u], low[v]);
+        }
+
+        // Update low value of 'u' only of 'v' is still in stack
+        // (i.e. it's a back edge, not cross edge).
+        // Case 2 (per above discussion on Disc and Low value)
+        else if (stackmember[v] == true)
+            low[u]  = min(low[u], disc[v]);
+    }
+
+    // head node found, pop the stack and print an SCC
+    int w = 0;  // To store stack extracted vertices
+    if (low[u] == disc[u])
+    {
+        while (st->top() != u)
+        {
+            w = (int) st->top();
+            cout << w << " ";
+            stackmember[w] = false;
+            st->pop();
+        }
+        w = (int) st->top();
+        cout << w << std::endl;
+        stackmember[w] = false;
+        st->pop();
+    }
+}
+
+void Graph::SCC()
+{
+    int* disc =new int [m_edges.size()];
+    int* low = new int [m_edges.size()];
+    bool* stackmember = new bool [m_edges.size()];
+    std:stack<int>* st= new stack<int>();
+
+    for(int i=0; i<m_edges.size();i++)
+    {
+        disc[i]=-1;
+        low[i]=-1;
+        stackmember[i]=false;
+    }
+
+    for (int i=0;i<m_edges.size();i++)
+    {
+        if (disc[i]==-1)
+        {
+            SCCutil(i,disc,low,st,stackmember);
+        }
+    }
+}
+
+
+/*int Graph::newcmpt()
+{
+    int n = 0;
+
+    std::set<int> ListNum;
+    for (auto & elem : m_vertices)
+    {
+        ListNum.insert(elem.second.m_cmpt);
+    }
+
+    while (true)
+    {
+        if (ListNum.find(n)==ListNum.end())
+            break;
+        else
+            n++;
+    }
+    return n;
+}
+
+void Graph::connexe(std::vector<int>& origin, int where, std::set<int>& passedBy)
+    {
+        origin.push_back(where);
+        passedBy.insert(where);
+
+        for (auto& elem : vertices.at(where).m_out)
+        {
+            int destVert=m_edges.at(elem).m_to;
+
+            if(!m_vertices.at(destVert).m_marqueur)
+            {
+                int cmpt=m_vertices.at(destVert).m_cmpt;
+
+                 if (cmpt==-1||cmpt!=m_vertices.at(where).m_comNum)
+                 {
+                     std::vector<int>::iterator k=find(origin.begin(),origin.end(),destVert);
+
+                     if(k!=origin.end())
+                        {
+                            cmpt= newcmpt();
+
+                            for(std::vector<int>::iterator l= k; l!=origin.end();l++)
+                            {
+                                if((m_vertices.at(*l).m_cmpt!=-1)&&(m_vertices.at(*l).m_cmpt!=cmpt))
+                                   {
+                                       for (auto & elem : m_vertices)
+                                          {
+                                             if (elem.second.m_cmpt==ancien)
+                                                  {
+                                                     elem.second.m_cmpt = nouveau;
+                                                  }
+
+                                          }
+                                       cmpt=m_vertices.at(*passer).m_cmpt= cmpt;
+                                   }
+                                   else
+                                   {
+                                       m_vertices.at(*passer).m_compNum;
+                                   }
+
+                            }
+                        }
+                        else
+                        {
+                            connexe(origin,destVert,passedBy);
+                        }
+                  }
+            }
+        }
+        origin.pop_back();
+    }
+
+void Graph::Fconnexe()
+    {
+        std::vector <std::vector <int>> marquage; //tableau de marquage
+        bool ok=false;//
+
+        for (auto &elem : m_vertices)
+
+        {
+            elem.second.m_marqueur = false;  //on initialise le tableau de marquage a0
+           }
+
+        for (auto &elem : m_vertices)
+
+        {
+            elem.second.m_cmpt = -1;
+            }
+    while(ok!=true)
+    {
+        int sommetActuel=-1;
+        for(auto &elem :m_vertices)
+        {
+            if (elem.second.m_marqueur!=true)
+            {
+                sommetActuel = elem.first;
+                break;
+            }
+        }
+
+        if(sommetActuel==-1)
+        {
+            ok=true;
+        }
+        else
+        {
+            if(m_vertices.at(sommetActuel).m_in.empty()||m_vertices.at(sommetActuel).m_out.empty())
+            {
+                m_vertices.at(sommetActuel).m_cmpt=newcmpt();
+                m_vertices.at(sommetActuel).m_marqueur= true;
+
+            }
+            else{
+                    vector<int> dump;
+                    set<int>receivedComps;
+
+                    connexe(dump,sommetActuel,receivedComps);
+
+                }
+        }
+     }
+    }
+
+ void Graph::Fconnexe()
+{
+    std::queue<int> file;
+    ///On initialise les indices des sommets
+    ///On fait la boucle pour les comporantes fortement connexe pour les sommets 1 a 1
+    for(unsigned int i = 0; i<m_ordre; i++)
+    {
+        ///Composantes fortement connexte partant de x (via vecteur d'arrete)
+        ///On initialise le marquage a faux
+        Initialisation();
+        ///On ajoute le sommets de debut
+        file.push(i);
+        ///On le marque
+        m_sommets[i].Setmarque(true);
+        ///On crée le vecteur qui va recuperer les arretes utilisés
+        std::vector<Vertex> compoconnexe;
+        while(file.size() != 0)
+        {
+            for(unsigned int j = 0; j<m_aretes.size(); j++)
+            {
+                ///Si le sommets cible et le sommet 1 d'une arete on le meme nom
+                if(m_sommets[file.front()].Getnom() == m_aretes[j].Gets1().Getnom() && m_sommets[m_aretes[j].Gets2().Getindice()].Getmarque() == false)
+                {
+                    ///Si le sommets 2 de l'arete n'est pas marquer, on le marque et on l'ajoute a la file
+                    file.push(m_aretes[j].Gets2().Getindice());
+                    ///On le marque
+                    m_sommets[m_aretes[j].Gets2().Getindice()].Setmarque(true);
+                }
+            }
+            file.pop();
+        }
+        std::cout<<m_sommets[i].Getnom()<<std::endl;
+        for(unsigned int j = 0; j<m_ordre; j++)
+        {
+            if(m_sommets[j].Getmarque() == true)
+            {
+                ///On recuperer les sommets de la compo connexe dans le sens positif
+                std::cout<<m_sommets[j].Getnom()<<std::endl;
+                compoconnexe.push_back(m_sommets[j]);
+            }
+        }
+        std::cout<<std::endl<<std::endl;
+        ///Composantes fortement connexte en sens inverse partant de x (via vecteur d'arrete)
+        ///On initialise le marquage a faux
+        Initialisation();
+        ///On ajoute le sommets de debut
+        file.push(i);
+        ///On le marque
+        m_sommets[i].Setmarque(true);
+        ///On crée le vecteur qui va recuperer les arretes utilisés
+        std::vector<Vertex> compoconnexeinverse;
+        while(file.size() != 0)
+        {
+            for(unsigned int j = 0; j<m_aretes.size(); j++)
+            {
+                ///Si le sommets cible et le sommet 1 d'une arete on le meme nom
+                if(m_sommets[file.front()].Getnom() == m_aretes[j].Gets2().Getnom() && m_sommets[m_aretes[j].Gets1().Getindice()].Getmarque() == false)
+                {
+                    ///Si le sommets 2 de l'arete n'est pas marquer, on le marque et on l'ajoute a la file
+                    file.push(m_aretes[j].Gets1().Getindice());
+                    ///On le marque
+                    m_sommets[m_aretes[j].Gets1().Getindice()].Setmarque(true);
+                }
+            }
+            file.pop();
+        }
+        std::cout<<m_sommets[i].Getnom()<<std::endl;
+        for(unsigned int j = 0; j<m_ordre; j++)
+        {
+            if(m_sommets[j].Getmarque() == true)
+            {
+                ///On recuperer les sommets de la compo connexe dans le sens positif
+                std::cout<<m_sommets[j].Getnom()<<std::endl;
+                compoconnexeinverse.push_back(m_sommets[j]);
+            }
+        }
+        std::cout<<std::endl<<std::endl;
+        for(unsigned int j = 0; j<compoconnexe.size(); j++)
+        {
+            for(unsigned int k = 0; k<compoconnexeinverse.size(); k++)
+            {
+                if(compoconnexe[j].Getnom()==compoconnexeinverse[k].Getnom())
+                {
+                    m_sommets[compoconnexe[j].Getindice()].Setcouleur(i);
+                }
+            }
+        }
+    }
+}*/
+void Graph::PartieFonctionnelle()
+{
+    float k;
+
+    for (auto &tx: m_vertices)
+    {
+        for( auto &ty: tx.second.m_in)
+        {
+            for(auto &tz:m_edges)
+            {
+                k=k+tz.second.m_weight+m_vertices[ty].m_value;
+            }
+        }
+        tx.second.m_value=tx.second.m_value+0.003*tx.second.m_value*(1-tx.second.m_value/k)-k;
+    }
+
+}
+
+
+void Graph::erase1edge(int eidx)
+{
+
+
+    Edge &remed=m_edges.at(eidx);
+    if (m_interface && remed.m_interface)
+    {
+        m_interface->m_main_box.remove_child( remed.m_interface->m_top_edge );
+    }
+    std::vector<int> &vefrom = m_vertices[remed.m_from].m_out;
+    std::vector<int> &veto = m_vertices[remed.m_to].m_in;
+    vefrom.erase( std::remove( vefrom.begin(), vefrom.end(), eidx ), vefrom.end() );
+    veto.erase( std::remove( veto.begin(), veto.end(), eidx ), veto.end() );
+    m_edges.erase( eidx );
+}
+
 
 /// eidx index of edge to remove
 void Graph::test_remove_edge(int eidx)

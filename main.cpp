@@ -2,42 +2,95 @@
 #include <iostream>
 
 #include "graph.h"
-void menu()
+/*void menu()
 {
-    BITMAP* fe;
-    BITMAP* buffer;
-    fe=  load_bitmap("menu.jpg",NULL);
-    buffer= create_bitmap(SCREEN_W,SCREEN_H);
-    blit(fe,buffer,0,0,0,0,800,600);
-    blit(buffer,screen,0,0,0,0,800,600);
+    BITMAP *page;
+    BITMAP *image;
+    page=create_bitmap(800,600);
+    image=load_bitmap("menu.bmp",NULL);
+   Graph g;
+    bool booleen = false, test = false;
     grman::set_pictures_path("pics");
-    bool x = false;
-    Graph g;
 
-    while( !key[KEY_ESC])
+
+    while (!key[KEY_ESC])
     {
-        if(mouse_b&1 && 308 < mouse_x && mouse_x <507 && 86<mouse_y && mouse_y < 138)
+        blit(image,page,0,0,0,0,800,600);
+        blit(page,screen,0,0,0,0,800,600);
+        grman::set_pictures_path("pics");
+        //g.make_example();
+        test = false;
+
+
+        if (mouse_b&1 && mouse_x>300 && mouse_x<492 && mouse_y>142 && mouse_y<214 )
         {
 
+            booleen = true;
             g.make_example();
-            x=true;
-            while(x==true)
+            while (booleen == true)
             {
+                g.update();
+                grman::mettre_a_jour();
+               // g.make_example();
 
+                if(key[KEY_S])
+                {
+                    booleen=false;
+                    blit(image,page,0,0,0,0,800,600);
+                    blit(page,screen,0,0,0,0,800,600);
+                    menu();
+
+                }
+
+            }
+
+        }
+
+        else if (mouse_b&1 && mouse_x>300 && mouse_x<492 && mouse_y>231 && mouse_y<304 )
+        {
+            booleen = true;
+            g.make_example2();
+            while (booleen == true)
+            {
                 g.update();
                 grman::mettre_a_jour();
 
-                if(key[KEY_BACKSLASH])
+            if(key[KEY_S])
                 {
-                    x=false;
-                    blit(fe,buffer,0,0,0,0,800,600);
-                    blit(buffer,fe,0,0,0,0,800,600);
+                    booleen=false;
+                    blit(image,page,0,0,0,0,800,600);
+                    blit(page,screen,0,0,0,0,800,600);
+                    menu();
                 }
             }
+
+
         }
 
+        else if (mouse_b&1 && mouse_x>300 && mouse_x<492 && mouse_y>324 && mouse_y<395)
+        {
+            booleen = true;
+            g.make_example3();
+            while (booleen == true)
+            {
+                g.update();
+                grman::mettre_a_jour();
+
+                if(key[KEY_S])
+                {
+                    booleen=false;
+                    blit(image,page,0,0,0,0,800,600);
+                    blit(page,screen,0,0,0,0,800,600);
+                    menu();
+
+                }
+            }
+
+
+        }
     }
-}
+}*/
+
 int main()
 {
     /// A appeler en 1er avant d'instancier des objets graphiques etc...
@@ -47,9 +100,9 @@ int main()
     grman::set_pictures_path("pics");
 
     /// Un exemple de graphe
-    int choix1;
-    Graph g;
 
+    Graph g;
+    int choix1;
     do
     {
         std::cout<<"Choix : ";
@@ -72,6 +125,7 @@ int main()
         g.make_example3();
         break;
     }
+
 
 
     /// Vous gardez la main sur la "boucle de jeu"
