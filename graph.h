@@ -271,6 +271,14 @@ class GraphInterface
         grman::WidgetButton m_bouton2;
         grman::WidgetText m_bouton2_label;
 
+        grman::WidgetBox m_box_sauvebis;
+        grman::WidgetButton m_bouton2bis;
+        grman::WidgetText m_bouton2bis_label;
+
+        grman::WidgetBox m_box_sauveter;
+        grman::WidgetButton m_bouton2ter;
+        grman::WidgetText m_bouton2ter_label;
+
         grman::WidgetBox m_box_add;
         grman::WidgetButton m_bouton3;
         grman::WidgetText m_bouton3_label;

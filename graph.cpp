@@ -182,7 +182,37 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton2.set_bg_color(VERTSOMBRE);
 
     m_bouton2.add_child(m_bouton2_label);
-    m_bouton2_label.set_message("SAVE");
+    m_bouton2_label.set_message("SAVE G1");
+
+    ///SAUVE GRAPHE 2
+
+    m_tool_box.add_child(m_box_sauvebis);
+    m_box_sauvebis.set_dim(74,74);
+    m_box_sauvebis.set_gravity_x(grman::GravityX::Left);
+    m_box_sauvebis.set_posy(160);
+    m_box_sauvebis.set_bg_color(ROSECLAIR);
+
+    m_box_sauvebis.add_child( m_bouton2bis );
+    m_bouton2bis.set_frame(10,10,59,59);
+    m_bouton2bis.set_bg_color(ROSESOMBRE);
+
+    m_bouton2bis.add_child(m_bouton2bis_label);
+    m_bouton2bis_label.set_message("SAVE G2");
+
+    ///SAUVE GRAPGHE 3
+
+    m_tool_box.add_child(m_box_sauveter);
+    m_box_sauveter.set_dim(74,74);
+    m_box_sauveter.set_gravity_x(grman::GravityX::Left);
+    m_box_sauveter.set_posy(240);
+    m_box_sauveter.set_bg_color(BLEUCLAIR);
+
+    m_box_sauveter.add_child( m_bouton2ter );
+    m_bouton2ter.set_frame(10,10,59,59);
+    m_bouton2ter.set_bg_color(BLEUSOMBRE);
+
+    m_bouton2ter.add_child(m_bouton2ter_label);
+    m_bouton2ter_label.set_message("SAVE G3");
 
 
     ///ADD
@@ -190,7 +220,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_box_add.set_dim(74,74);
     m_box_add.set_gravity_x(grman::GravityX::Left);
     m_box_add.set_bg_color(JAUNECLAIR);
-    m_box_add.set_posy(160);
+    m_box_add.set_posy(320);
 
     m_box_add.add_child( m_bouton3 );
     m_bouton3.set_frame(10,10,59,59);
@@ -205,7 +235,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_tool_box.add_child(m_box_remove);
     m_box_remove.set_dim(74,74);
     m_box_remove.set_gravity_x(grman::GravityX::Left);
-    m_box_remove.set_posy(240);
+    m_box_remove.set_posy(400);
     m_box_remove.set_bg_color(ORANGECLAIR);
 
     m_box_remove.add_child( m_bouton4 );
@@ -214,8 +244,6 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 
     m_bouton4.add_child(m_bouton4_label);
     m_bouton4_label.set_message("REMOVE");
-
-
 
 
     m_top_box.add_child(m_main_box);
@@ -376,8 +404,6 @@ void Graph::make_example3()
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 void Graph::update()
 {
-
-
     if (!m_interface)
         return;
 
@@ -399,25 +425,32 @@ m_top_box.update();
         Supprimer();
     }
 
-    if(key[KEY_Q])
+    if(m_interface -> m_bouton3.clicked())
     {
         Ajouter1();
     }
 
-    if (key[KEY_C])
+    if (m_interface -> m_bouton2.clicked())
     {
         savecoord1( m_vertices);
     }
 
-    if (key[KEY_V])
+    if (m_interface -> m_bouton2bis.clicked())
     {
         savecoord2(m_vertices);
     }
 
-    if (key[KEY_B])
+    if (m_interface -> m_bouton2ter.clicked())
     {
         savecoord3(m_vertices);
     }
+
+     /*if (m_interface -> m_bouton1.clicked())
+    {
+        menu2();
+    }*/
+
+
 }
 
 /// Aide à l'ajout de sommets interfacés

@@ -38,15 +38,11 @@ void menu()
 
     }
 }
-int main()
+/*void menu2()
 {
-    /// A appeler en 1er avant d'instancier des objets graphiques etc...
     grman::init();
-
-    /// Le nom du répertoire où se trouvent les images à charger
     grman::set_pictures_path("pics");
-
-    /// Un exemple de graphe
+   /// Un exemple de graphe
     int choix1;
     Graph g;
 
@@ -72,6 +68,45 @@ int main()
         g.make_example3();
         break;
     }
+}*/
+
+int main()
+{
+    /// A appeler en 1er avant d'instancier des objets graphiques etc...
+    grman::init();
+
+    /// Le nom du répertoire où se trouvent les images à charger
+    grman::set_pictures_path("pics");
+
+    Graph g;
+    //menu2();
+
+    /// Un exemple de graphe
+    int choix1;
+
+    do
+    {
+        std::cout<<"Choix : ";
+        std::cin>>choix1;
+    }
+    while(choix1 < 1 || choix1 >3);
+
+
+    switch(choix1)
+    {
+    case 1 :
+        g.make_example();
+        break;
+
+    case 2 :
+        g.make_example2();
+        break;
+
+    case 3:
+        g.make_example3();
+        break;
+    }
+
 
     BITMAP* fe;
     BITMAP* buffer;
