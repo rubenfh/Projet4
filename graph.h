@@ -247,6 +247,9 @@ class Edge
         /// Voir l'implémentation Graph::update dans le .cpp
         void pre_update();
         void post_update();
+
+        void setepais(float _x);
+
 };
 
 
@@ -427,6 +430,8 @@ class Graph
         void update();
 
         void erasegraphe();
+
+        void setepais();
 };
 
 

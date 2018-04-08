@@ -564,6 +564,10 @@ void Graph::update()
     {
         supVertex();
     }
+
+
+    setepais();
+
 }
 
 /// Aide à l'ajout de sommets interfacés
@@ -689,6 +693,18 @@ void Graph::savecoord3(std::map<int, Vertex> m_vertices)
     fichier1.close();
 }
 
+void Edge::setepais(float _x)
+{
+    m_interface->m_top_edge.setepais(_x);
+}
+
+void Graph::setepais()
+{
+    for(auto it : m_edges)
+    {
+        it.second.setepais(it.second.m_weight);
+    }
+}
 
 ///supprimer toutes les arrettes connectées à un sommet
 void Graph::Supprimer()

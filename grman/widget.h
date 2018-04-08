@@ -443,6 +443,11 @@ class WidgetEdge : public Widget
 
         void set_children_position(double rel_pos) { m_children_position = rel_pos; }
         void set_children_lateral(double abs_lat) { m_children_lateral = abs_lat; }
+
+        void setepais (float _x)
+        {
+            m_thickness=(_x/25)+2;
+        }
 };
 
 
