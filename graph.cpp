@@ -642,7 +642,7 @@ void Graph::SCC()
 void Graph::PartieFonctionnelle()
 {
 
-    float k=0;
+  /*  float k=0.00001;
 
     pred();
    // calculK();
@@ -667,7 +667,66 @@ void Graph::PartieFonctionnelle()
             //tx.second.m_value=( tx.second.m_value)+0.01*(1-( tx.second.m_value)/(k));
             tx.second.m_value= tx.second.m_value + 0.0000001*tx.second.m_value*(1 - (tx.second.m_value/(k/1.2))) -(k/100);
         }
+    }*/
+
+
+    float val;
+    std::map<int,float> stc;
+    for(auto &tx : m_vertices)
+    {
+        double k=0;
+        double predation=0;
+        float r=0.01;//coef de reproduction constant pour tout le monde
+        bool pred=false;
+
+        for (auto &ln : m_edges)
+        {
+            if( ln.second.m_to==tx.first)
+            {
+                k+=ln.second.m_weight*r*m_vertices[ln.second.m_from].m_value;
+                pred=true;
+            }
+            if(ln.second.m_from==tx.first)
+            {
+                predation+=ln.second.m_weight*r*m_vertices[ln.second.m_to].m_value;
+            }
+        }
+
+        if(k==0 && pred==false)
+        {
+            k=100;
+
+        }
+
+        if(k==0 && pred==true)
+        {
+            k=0.1;
+        }
+
+
+
+
+        val = tx.second.m_value+0.05*(tx.second.m_value*(1-tx.second.m_value/k)-predation);
+
+        stc.insert(std::make_pair(tx.first,val));
     }
+    for( auto &ty: stc)
+    {
+        for (auto &tz: m_vertices)
+        {
+            if(tz.first == ty.first)
+
+            {
+
+                tz.second.m_value=ty.second;
+            }
+        }
+    }
+
+
+
+
+
 
 
 
@@ -732,7 +791,7 @@ void Graph::pred()
 {
   int arc,sommet,nb;
 
-  for(int i=0; i<m_edges.size();i++)
+  for(unsigned int i=0; i<m_edges.size();i++)
   {
       nb=m_vertices[i].m_in.size();
       for(int j=0;j<nb;j++)

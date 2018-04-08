@@ -357,8 +357,9 @@ void Graph::update()
         savecoord3(m_vertices);
     }
     if(key[KEY_E])
-    {initMatriceAdj();
-     SCC();
+    {
+        initMatriceAdj();
+        SCC();
     }
 }
 
@@ -400,6 +401,8 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     m_edges[idx].m_to=id_vert2;
     m_vertices[id_vert1].m_out.push_back(idx);
     m_vertices[id_vert2].m_out.push_back(idx);
+     m_vertices[id_vert1].m_in.push_back(idx);
+    m_vertices[id_vert2].m_in.push_back(idx);
 
 
 }
@@ -553,7 +556,7 @@ void Graph::initMatriceAdj()
 
     adj= new list <int> [m_edges.size()];
 
-    for(unsigned int i=0;i<m_edges.size();i++)
+    for(unsigned int i=0; i<m_edges.size(); i++)
     {
         adj[m_edges[i].m_from].push_back(m_edges[i].m_to);
     }
@@ -562,7 +565,7 @@ void Graph::SCCutil(int u, int disc[], int low[], stack<int> *st,bool stackmembe
 {
 
 
-static int time = 0;
+    static int time = 0;
 
     // Initialize discovery time and low value
     disc[u] = low[u] = ++time;
@@ -618,14 +621,14 @@ void Graph::SCC()
     bool* stackmember = new bool [m_edges.size()];
     std::stack<int>* st= new stack<int>();
 
-    for(unsigned int i=0; i<m_edges.size();i++)
+    for(unsigned int i=0; i<m_edges.size(); i++)
     {
         disc[i]=-1;
         low[i]=-1;
         stackmember[i]=false;
     }
 
-    for (unsigned int i=0;i<m_edges.size();i++)
+    for (unsigned int i=0; i<m_edges.size(); i++)
     {
         if (disc[i]==-1)
         {
@@ -638,19 +641,172 @@ void Graph::SCC()
 
 void Graph::PartieFonctionnelle()
 {
-    float k;
+
+  /*  float k=0.00001;
+
+    pred();
+   // calculK();
+    //calculN();
 
     for (auto &tx: m_vertices)
     {
         for( auto &ty: tx.second.m_in)
         {
             for(auto &tz:m_edges)
-            {
-                k=k+tz.second.m_weight+m_vertices[ty].m_value;
+            {      //calcul de k avec un r =0.000001
+                  k+= 0.0000001*tz.second.m_weight* m_vertices[ty].m_value/m_vertices.size();
             }
         }
-        tx.second.m_value=tx.second.m_value+0.00001*tx.second.m_value*(1-tx.second.m_value/k)-k;
+        //on considère qu'il y a de l'herbe à l'infini
+       if(tx.second.m_interface->m_img.m_pic_name=="herbe.jpg")
+       {
+           tx.second.m_value=100;
+       }
+        if (tx.second.m_value >0)
+        {
+            //tx.second.m_value=( tx.second.m_value)+0.01*(1-( tx.second.m_value)/(k));
+            tx.second.m_value= tx.second.m_value + 0.0000001*tx.second.m_value*(1 - (tx.second.m_value/(k/1.2))) -(k/100);
+        }
+    }*/
+
+
+    float val;
+    std::map<int,float> stc;
+    for(auto &tx : m_vertices)
+    {
+        double k=0;
+        double predation=0;
+        float r=0.01;//coef de reproduction constant pour tout le monde
+        bool pred=false;
+
+        for (auto &ln : m_edges)
+        {
+            if( ln.second.m_to==tx.first)
+            {
+                k+=ln.second.m_weight*r*m_vertices[ln.second.m_from].m_value;
+                pred=true;
+            }
+            if(ln.second.m_from==tx.first)
+            {
+                predation+=ln.second.m_weight*r*m_vertices[ln.second.m_to].m_value;
+            }
+        }
+
+        if(k==0 && pred==false)
+        {
+            k=100;
+
+        }
+
+        if(k==0 && pred==true)
+        {
+            k=0.1;
+        }
+
+
+
+
+        val = tx.second.m_value+0.05*(tx.second.m_value*(1-tx.second.m_value/k)-predation);
+
+        stc.insert(std::make_pair(tx.first,valeur));
     }
+    for( auto &ty: stc)
+    {
+        for (auto &tz: m_vertices)
+        {
+            if(tz.first == ty.first)
+
+            {
+
+                tz.second.m_value=ty.second;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+/*void Graph::calculK()
+{
+    for(unsigned int i=0; i<m_vertices.size(); i++)
+    {
+        int J=0;
+
+      for(unsigned int j=0;j<m_pred.size();j++)
+       {
+        int z=m_vertices[i].m_predecesseur[j];
+
+        if(m_edges[i].m_from==z)
+        {
+           J=J+m_vertices[z].m_value*m_edges[i].m_weight ;
+        }
+
+       }
+    }
+
+}
+
+void Graph::calculN()
+{
+     int N=0;
+    int K=0;
+    int nb;
+
+
+    for(unsigned int i=0; i<m_vertices.size(); i++)
+    { int J=0;
+      for(unsigned int j=0;j<m_pred.size();j++)
+       {
+        int z=m_vertices[i].m_predecesseur[j];
+
+        if(m_edges[i].m_from==z)
+        {
+           J=J+m_vertices[z].m_value*m_edges[i].m_weight ;
+        }
+
+       }
+        K=m_vertices[i].m_K;
+        N= (m_vertices[i].m_value) + (0.01)*(m_vertices[i].m_value)*(1-(m_vertices[i].m_value)/K);
+
+        /// on recupere le nombre de ses predecesseurs
+        nb=m_vertices[i].m_predecesseur.size();
+
+         m_vertices[i].m_value=( m_vertices[i].m_value)+( 0.01)*(1-( m_vertices[i].m_value)/K)-J;
+                     std::cout << " le K est: " << K << " nombre de S" << i <<" est : " << m_vertices[i].m_value <<std::endl;
+
+                }
+}*/
+
+
+void Graph::pred()
+{
+  int arc,sommet,nb;
+
+  for(unsigned int i=0; i<m_edges.size();i++)
+  {
+      nb=m_vertices[i].m_in.size();
+      for(int j=0;j<nb;j++)
+      {
+          arc=m_vertices[i].m_in[j];
+          sommet=m_edges[arc].m_to;
+          m_vertices[i].m_predecesseur.push_back(sommet);
+          /*for(int k=0;k<m_vertices[i].m_predecesseur.size();k++)
+          {
+              std::cout <<i<< " "<<m_vertices[i].m_predecesseur[k];
+
+          }*/
+
+      }
+  }
 
 }
 
