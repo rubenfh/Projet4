@@ -56,7 +56,7 @@
 	<iostream>
 	"graph.h"
 
-1523212534 source:c:\users\ruben falvert\documents\projetinfo4\graph.cpp
+1523213046 source:c:\users\ruben falvert\documents\projetinfo4\graph.cpp
 	"graph.h"
 	<sstream>
 	<fstream>
@@ -64,7 +64,7 @@
 	<queue>
 	<set>
 
-1523207439 c:\users\ruben falvert\documents\projetinfo4\graph.h
+1523213046 c:\users\ruben falvert\documents\projetinfo4\graph.h
 	<list>
 	<stack>
 	<queue>
@@ -74,19 +74,19 @@
 	<memory>
 	"grman/grman.h"
 
-1522857183 c:\users\ruben falvert\documents\projetinfo4\grman\grman.h
+1523213046 c:\users\ruben falvert\documents\projetinfo4\grman\grman.h
 	<allegro.h>
 	<string>
 	"grman_couleurs.h"
 	"coords.h"
 	"widget.h"
 
-1509222372 c:\users\ruben falvert\documents\projetinfo4\grman\grman_couleurs.h
+1523213046 c:\users\ruben falvert\documents\projetinfo4\grman\grman_couleurs.h
 
-1522575424 c:\users\ruben falvert\documents\projetinfo4\grman\coords.h
+1523213046 c:\users\ruben falvert\documents\projetinfo4\grman\coords.h
 	<cmath>
 
-1522862488 c:\users\ruben falvert\documents\projetinfo4\grman\widget.h
+1523213046 c:\users\ruben falvert\documents\projetinfo4\grman\widget.h
 	"grman.h"
 	<iostream>
 	<string>
@@ -94,10 +94,10 @@
 	<algorithm>
 	<allegro.h>
 
-1522575069 source:c:\users\ruben falvert\documents\projetinfo4\grman\coords.cpp
+1523213046 source:c:\users\ruben falvert\documents\projetinfo4\grman\coords.cpp
 	"coords.h"
 
-1522515823 source:c:\users\ruben falvert\documents\projetinfo4\grman\grman.cpp
+1523213046 source:c:\users\ruben falvert\documents\projetinfo4\grman\grman.cpp
 	<cmath>
 	<unordered_map>
 	<unordered_set>
@@ -111,181 +111,10 @@
 	<loadpng.h>
 	<jpgalleg.h>
 
-1522636919 source:c:\users\ruben falvert\documents\projetinfo4\grman\widget.cpp
+1523213046 source:c:\users\ruben falvert\documents\projetinfo4\grman\widget.cpp
 	"widget.h"
 
-1523199605 source:c:\users\ruben falvert\documents\projetinfo4\main.cpp
-	"grman/grman.h"
-	<iostream>
-	"graph.h"
-
-1522948900 source:c:\users\wilfrid\desktop\projet4-master\projet4-master\graph.cpp
-	"graph.h"
-	<sstream>
-	<fstream>
-
-1522948305 c:\users\wilfrid\desktop\projet4-master\projet4-master\graph.h
-	<vector>
-	<map>
-	<string>
-	<memory>
-	"grman/grman.h"
-
-1522926164 c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\grman.h
-	<allegro.h>
-	<string>
-	"grman_couleurs.h"
-	"coords.h"
-	"widget.h"
-
-1522926164 c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\grman_couleurs.h
-
-1522926164 c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\coords.h
-	<cmath>
-
-1522926164 c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\widget.h
-	"grman.h"
-	<iostream>
-	<string>
-	<vector>
-	<algorithm>
-	<allegro.h>
-
-1522926164 source:c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\coords.cpp
-	"coords.h"
-
-1522926164 source:c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\grman.cpp
-	<cmath>
-	<unordered_map>
-	<unordered_set>
-	<utility>
-	<string>
-	<iostream>
-	<regex>
-	"grman.h"
-	<allegro.h>
-	<png.h>
-	<loadpng.h>
-	<jpgalleg.h>
-
-1522926164 source:c:\users\wilfrid\desktop\projet4-master\projet4-master\grman\widget.cpp
-	"widget.h"
-
-1522944636 source:c:\users\wilfrid\desktop\projet4-master\projet4-master\main.cpp
-	"grman/grman.h"
-	<iostream>
-	"graph.h"
-
-1522949192 source:c:\users\wilfrid\desktop\projetinfo4\graph.cpp
-	"graph.h"
-	<sstream>
-	<fstream>
-
-1523032236 c:\users\wilfrid\desktop\projetinfo4\graph.h
-	<vector>
-	<map>
-	<string>
-	<memory>
-	"grman/grman.h"
-
-1522926164 c:\users\wilfrid\desktop\projetinfo4\grman\grman.h
-	<allegro.h>
-	<string>
-	"grman_couleurs.h"
-	"coords.h"
-	"widget.h"
-
-1522926164 c:\users\wilfrid\desktop\projetinfo4\grman\grman_couleurs.h
-
-1522926164 c:\users\wilfrid\desktop\projetinfo4\grman\coords.h
-	<cmath>
-
-1522926164 c:\users\wilfrid\desktop\projetinfo4\grman\widget.h
-	"grman.h"
-	<iostream>
-	<string>
-	<vector>
-	<algorithm>
-	<allegro.h>
-
-1522926164 source:c:\users\wilfrid\desktop\projetinfo4\grman\coords.cpp
-	"coords.h"
-
-1522926164 source:c:\users\wilfrid\desktop\projetinfo4\grman\grman.cpp
-	<cmath>
-	<unordered_map>
-	<unordered_set>
-	<utility>
-	<string>
-	<iostream>
-	<regex>
-	"grman.h"
-	<allegro.h>
-	<png.h>
-	<loadpng.h>
-	<jpgalleg.h>
-
-1522926164 source:c:\users\wilfrid\desktop\projetinfo4\grman\widget.cpp
-	"widget.h"
-
-1522944636 source:c:\users\wilfrid\desktop\projetinfo4\main.cpp
-	"grman/grman.h"
-	<iostream>
-	"graph.h"
-
-1523156539 source:c:\users\wilfrid\desktop\projetinfo4true\graph.cpp
-	"graph.h"
-	<sstream>
-	<fstream>
-
-1523154840 c:\users\wilfrid\desktop\projetinfo4true\graph.h
-	<vector>
-	<map>
-	<string>
-	<memory>
-	"grman/grman.h"
-
-1522926164 c:\users\wilfrid\desktop\projetinfo4true\grman\grman.h
-	<allegro.h>
-	<string>
-	"grman_couleurs.h"
-	"coords.h"
-	"widget.h"
-
-1522926164 c:\users\wilfrid\desktop\projetinfo4true\grman\grman_couleurs.h
-
-1522926164 c:\users\wilfrid\desktop\projetinfo4true\grman\coords.h
-	<cmath>
-
-1522926164 c:\users\wilfrid\desktop\projetinfo4true\grman\widget.h
-	"grman.h"
-	<iostream>
-	<string>
-	<vector>
-	<algorithm>
-	<allegro.h>
-
-1522926164 source:c:\users\wilfrid\desktop\projetinfo4true\grman\coords.cpp
-	"coords.h"
-
-1523097420 source:c:\users\wilfrid\desktop\projetinfo4true\grman\grman.cpp
-	<cmath>
-	<unordered_map>
-	<unordered_set>
-	<utility>
-	<string>
-	<iostream>
-	<regex>
-	"grman.h"
-	<allegro.h>
-	<png.h>
-	<loadpng.h>
-	<jpgalleg.h>
-
-1522926164 source:c:\users\wilfrid\desktop\projetinfo4true\grman\widget.cpp
-	"widget.h"
-
-1523155646 source:c:\users\wilfrid\desktop\projetinfo4true\main.cpp
+1523213046 source:c:\users\ruben falvert\documents\projetinfo4\main.cpp
 	"grman/grman.h"
 	<iostream>
 	"graph.h"
