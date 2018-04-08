@@ -357,8 +357,9 @@ void Graph::update()
         savecoord3(m_vertices);
     }
     if(key[KEY_E])
-    {initMatriceAdj();
-     SCC();
+    {
+        initMatriceAdj();
+        SCC();
     }
 }
 
@@ -400,6 +401,8 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     m_edges[idx].m_to=id_vert2;
     m_vertices[id_vert1].m_out.push_back(idx);
     m_vertices[id_vert2].m_out.push_back(idx);
+     m_vertices[id_vert1].m_in.push_back(idx);
+    m_vertices[id_vert2].m_in.push_back(idx);
 
 
 }
@@ -553,7 +556,7 @@ void Graph::initMatriceAdj()
 
     adj= new list <int> [m_edges.size()];
 
-    for(int i=0;i<m_edges.size();i++)
+    for(unsigned int i=0; i<m_edges.size(); i++)
     {
         adj[m_edges[i].m_from].push_back(m_edges[i].m_to);
     }
@@ -562,7 +565,7 @@ void Graph::SCCutil(int u, int disc[], int low[], stack<int> *st,bool stackmembe
 {
 
 
-static int time = 0;
+    static int time = 0;
 
     // Initialize discovery time and low value
     disc[u] = low[u] = ++time;
@@ -616,16 +619,16 @@ void Graph::SCC()
     int* disc =new int [m_edges.size()];
     int* low = new int [m_edges.size()];
     bool* stackmember = new bool [m_edges.size()];
-    std:stack<int>* st= new stack<int>();
+    std::stack<int>* st= new stack<int>();
 
-    for(int i=0; i<m_edges.size();i++)
+    for(unsigned int i=0; i<m_edges.size(); i++)
     {
         disc[i]=-1;
         low[i]=-1;
         stackmember[i]=false;
     }
 
-    for (int i=0;i<m_edges.size();i++)
+    for (unsigned int i=0; i<m_edges.size(); i++)
     {
         if (disc[i]==-1)
         {
@@ -635,233 +638,116 @@ void Graph::SCC()
 }
 
 
-/*int Graph::newcmpt()
-{
-    int n = 0;
 
-    std::set<int> ListNum;
-    for (auto & elem : m_vertices)
-    {
-        ListNum.insert(elem.second.m_cmpt);
-    }
-
-    while (true)
-    {
-        if (ListNum.find(n)==ListNum.end())
-            break;
-        else
-            n++;
-    }
-    return n;
-}
-
-void Graph::connexe(std::vector<int>& origin, int where, std::set<int>& passedBy)
-    {
-        origin.push_back(where);
-        passedBy.insert(where);
-
-        for (auto& elem : vertices.at(where).m_out)
-        {
-            int destVert=m_edges.at(elem).m_to;
-
-            if(!m_vertices.at(destVert).m_marqueur)
-            {
-                int cmpt=m_vertices.at(destVert).m_cmpt;
-
-                 if (cmpt==-1||cmpt!=m_vertices.at(where).m_comNum)
-                 {
-                     std::vector<int>::iterator k=find(origin.begin(),origin.end(),destVert);
-
-                     if(k!=origin.end())
-                        {
-                            cmpt= newcmpt();
-
-                            for(std::vector<int>::iterator l= k; l!=origin.end();l++)
-                            {
-                                if((m_vertices.at(*l).m_cmpt!=-1)&&(m_vertices.at(*l).m_cmpt!=cmpt))
-                                   {
-                                       for (auto & elem : m_vertices)
-                                          {
-                                             if (elem.second.m_cmpt==ancien)
-                                                  {
-                                                     elem.second.m_cmpt = nouveau;
-                                                  }
-
-                                          }
-                                       cmpt=m_vertices.at(*passer).m_cmpt= cmpt;
-                                   }
-                                   else
-                                   {
-                                       m_vertices.at(*passer).m_compNum;
-                                   }
-
-                            }
-                        }
-                        else
-                        {
-                            connexe(origin,destVert,passedBy);
-                        }
-                  }
-            }
-        }
-        origin.pop_back();
-    }
-
-void Graph::Fconnexe()
-    {
-        std::vector <std::vector <int>> marquage; //tableau de marquage
-        bool ok=false;//
-
-        for (auto &elem : m_vertices)
-
-        {
-            elem.second.m_marqueur = false;  //on initialise le tableau de marquage a0
-           }
-
-        for (auto &elem : m_vertices)
-
-        {
-            elem.second.m_cmpt = -1;
-            }
-    while(ok!=true)
-    {
-        int sommetActuel=-1;
-        for(auto &elem :m_vertices)
-        {
-            if (elem.second.m_marqueur!=true)
-            {
-                sommetActuel = elem.first;
-                break;
-            }
-        }
-
-        if(sommetActuel==-1)
-        {
-            ok=true;
-        }
-        else
-        {
-            if(m_vertices.at(sommetActuel).m_in.empty()||m_vertices.at(sommetActuel).m_out.empty())
-            {
-                m_vertices.at(sommetActuel).m_cmpt=newcmpt();
-                m_vertices.at(sommetActuel).m_marqueur= true;
-
-            }
-            else{
-                    vector<int> dump;
-                    set<int>receivedComps;
-
-                    connexe(dump,sommetActuel,receivedComps);
-
-                }
-        }
-     }
-    }
-
- void Graph::Fconnexe()
-{
-    std::queue<int> file;
-    ///On initialise les indices des sommets
-    ///On fait la boucle pour les comporantes fortement connexe pour les sommets 1 a 1
-    for(unsigned int i = 0; i<m_ordre; i++)
-    {
-        ///Composantes fortement connexte partant de x (via vecteur d'arrete)
-        ///On initialise le marquage a faux
-        Initialisation();
-        ///On ajoute le sommets de debut
-        file.push(i);
-        ///On le marque
-        m_sommets[i].Setmarque(true);
-        ///On crée le vecteur qui va recuperer les arretes utilisés
-        std::vector<Vertex> compoconnexe;
-        while(file.size() != 0)
-        {
-            for(unsigned int j = 0; j<m_aretes.size(); j++)
-            {
-                ///Si le sommets cible et le sommet 1 d'une arete on le meme nom
-                if(m_sommets[file.front()].Getnom() == m_aretes[j].Gets1().Getnom() && m_sommets[m_aretes[j].Gets2().Getindice()].Getmarque() == false)
-                {
-                    ///Si le sommets 2 de l'arete n'est pas marquer, on le marque et on l'ajoute a la file
-                    file.push(m_aretes[j].Gets2().Getindice());
-                    ///On le marque
-                    m_sommets[m_aretes[j].Gets2().Getindice()].Setmarque(true);
-                }
-            }
-            file.pop();
-        }
-        std::cout<<m_sommets[i].Getnom()<<std::endl;
-        for(unsigned int j = 0; j<m_ordre; j++)
-        {
-            if(m_sommets[j].Getmarque() == true)
-            {
-                ///On recuperer les sommets de la compo connexe dans le sens positif
-                std::cout<<m_sommets[j].Getnom()<<std::endl;
-                compoconnexe.push_back(m_sommets[j]);
-            }
-        }
-        std::cout<<std::endl<<std::endl;
-        ///Composantes fortement connexte en sens inverse partant de x (via vecteur d'arrete)
-        ///On initialise le marquage a faux
-        Initialisation();
-        ///On ajoute le sommets de debut
-        file.push(i);
-        ///On le marque
-        m_sommets[i].Setmarque(true);
-        ///On crée le vecteur qui va recuperer les arretes utilisés
-        std::vector<Vertex> compoconnexeinverse;
-        while(file.size() != 0)
-        {
-            for(unsigned int j = 0; j<m_aretes.size(); j++)
-            {
-                ///Si le sommets cible et le sommet 1 d'une arete on le meme nom
-                if(m_sommets[file.front()].Getnom() == m_aretes[j].Gets2().Getnom() && m_sommets[m_aretes[j].Gets1().Getindice()].Getmarque() == false)
-                {
-                    ///Si le sommets 2 de l'arete n'est pas marquer, on le marque et on l'ajoute a la file
-                    file.push(m_aretes[j].Gets1().Getindice());
-                    ///On le marque
-                    m_sommets[m_aretes[j].Gets1().Getindice()].Setmarque(true);
-                }
-            }
-            file.pop();
-        }
-        std::cout<<m_sommets[i].Getnom()<<std::endl;
-        for(unsigned int j = 0; j<m_ordre; j++)
-        {
-            if(m_sommets[j].Getmarque() == true)
-            {
-                ///On recuperer les sommets de la compo connexe dans le sens positif
-                std::cout<<m_sommets[j].Getnom()<<std::endl;
-                compoconnexeinverse.push_back(m_sommets[j]);
-            }
-        }
-        std::cout<<std::endl<<std::endl;
-        for(unsigned int j = 0; j<compoconnexe.size(); j++)
-        {
-            for(unsigned int k = 0; k<compoconnexeinverse.size(); k++)
-            {
-                if(compoconnexe[j].Getnom()==compoconnexeinverse[k].Getnom())
-                {
-                    m_sommets[compoconnexe[j].Getindice()].Setcouleur(i);
-                }
-            }
-        }
-    }
-}*/
 void Graph::PartieFonctionnelle()
 {
-    float k;
+
+    float k=0;
+
+    pred();
+   // calculK();
+    //calculN();
 
     for (auto &tx: m_vertices)
     {
         for( auto &ty: tx.second.m_in)
         {
             for(auto &tz:m_edges)
-            {
-                k=k+tz.second.m_weight+m_vertices[ty].m_value;
+            {      //calcul de k avec un r =0.000001
+                  k+= 0.01*tz.second.m_weight* m_vertices[ty].m_value/m_vertices.size();
             }
         }
-        tx.second.m_value=tx.second.m_value+0.003*tx.second.m_value*(1-tx.second.m_value/k)-k;
+        //on considère qu'il y a de l'herbe à l'infini
+       if(tx.second.m_interface->m_img.m_pic_name=="herbe.jpg")
+       {
+           tx.second.m_value=100;
+       }
+        if (tx.second.m_value >0)
+        {
+            //tx.second.m_value=( tx.second.m_value)+0.01*(1-( tx.second.m_value)/(k));
+            tx.second.m_value= tx.second.m_value + 0.01*tx.second.m_value*(1 - (tx.second.m_value/(k/1.3))) -(k/100);
+        }
     }
+
+
+
+
+
+    }
+
+
+/*void Graph::calculK()
+{
+    for(unsigned int i=0; i<m_vertices.size(); i++)
+    {
+        int J=0;
+
+      for(unsigned int j=0;j<m_pred.size();j++)
+       {
+        int z=m_vertices[i].m_predecesseur[j];
+
+        if(m_edges[i].m_from==z)
+        {
+           J=J+m_vertices[z].m_value*m_edges[i].m_weight ;
+        }
+
+       }
+    }
+
+}
+
+void Graph::calculN()
+{
+     int N=0;
+    int K=0;
+    int nb;
+
+
+    for(unsigned int i=0; i<m_vertices.size(); i++)
+    { int J=0;
+      for(unsigned int j=0;j<m_pred.size();j++)
+       {
+        int z=m_vertices[i].m_predecesseur[j];
+
+        if(m_edges[i].m_from==z)
+        {
+           J=J+m_vertices[z].m_value*m_edges[i].m_weight ;
+        }
+
+       }
+        K=m_vertices[i].m_K;
+        N= (m_vertices[i].m_value) + (0.01)*(m_vertices[i].m_value)*(1-(m_vertices[i].m_value)/K);
+
+        /// on recupere le nombre de ses predecesseurs
+        nb=m_vertices[i].m_predecesseur.size();
+
+         m_vertices[i].m_value=( m_vertices[i].m_value)+( 0.01)*(1-( m_vertices[i].m_value)/K)-J;
+                     std::cout << " le K est: " << K << " nombre de S" << i <<" est : " << m_vertices[i].m_value <<std::endl;
+
+                }
+}*/
+
+
+void Graph::pred()
+{
+  int arc,sommet,nb;
+
+  for(int i=0; i<m_edges.size();i++)
+  {
+      nb=m_vertices[i].m_in.size();
+      for(int j=0;j<nb;j++)
+      {
+          arc=m_vertices[i].m_in[j];
+          sommet=m_edges[arc].m_to;
+          m_vertices[i].m_predecesseur.push_back(sommet);
+          /*for(int k=0;k<m_vertices[i].m_predecesseur.size();k++)
+          {
+              std::cout <<i<< " "<<m_vertices[i].m_predecesseur[k];
+
+          }*/
+
+      }
+  }
 
 }
 

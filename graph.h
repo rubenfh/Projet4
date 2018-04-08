@@ -2,6 +2,7 @@
 #define GRAPH_H_INCLUDED
 #include <list>
 #include <stack>
+#include <queue>
 
 /**************************************************************
     Ici sont proposées 3 classes fondamentales
@@ -94,6 +95,8 @@ class VertexInterface
 
     public :
 
+
+
         /// Les widgets de l'interface. N'oubliez pas qu'il ne suffit pas de déclarer
         /// ici un widget pour qu'il apparaisse, il faut aussi le mettre en place et
         /// le paramétrer ( voir l'implémentation du constructeur dans le .cpp )
@@ -126,6 +129,7 @@ class VertexInterface
 
 class Vertex
 {
+
     // Les (methodes des) classes amies pourront accéder
     // directement aux attributs (y compris privés)
     friend class Graph;
@@ -134,6 +138,9 @@ class Vertex
     friend class EdgeInterface;
 
     public:
+         int m_K;
+         int m_r;
+        std::vector <int> m_predecesseur; //tableau des predecesseurs
         ///on rajoute un compteur et un marqueur
         bool m_marqueur;
         int m_cmpt;
@@ -296,7 +303,9 @@ class Graph
 
 
     public:
-        std::list <int> *adj;
+        std::list <int> *adj; //matrice d'adjaceance
+        std::map<int,std::vector<int>> m_pred;
+
         /// Les constructeurs sont à compléter selon vos besoin...
         /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
         Graph (GraphInterface *interface=nullptr) :
@@ -330,6 +339,9 @@ class Graph
         void SCCutil(int u, int disc[], int low[], std::stack<int> *st,bool stackmember[]);
 
         void PartieFonctionnelle();
+        void calculN();
+        void calculK();
+        void pred();
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
 };

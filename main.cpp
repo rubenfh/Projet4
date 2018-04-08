@@ -100,9 +100,9 @@ int main()
     grman::set_pictures_path("pics");
 
     /// Un exemple de graphe
-
-    Graph g;
     int choix1;
+    Graph g;
+
     do
     {
         std::cout<<"Choix : ";
@@ -126,14 +126,13 @@ int main()
         break;
     }
 
-
-
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
     while ( !key[KEY_ESC] )
     {
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
         g.update();
+       if(key[KEY_SPACE]) g.PartieFonctionnelle();
 
         /// Mise à jour générale (clavier/souris/buffer etc...)
         grman::mettre_a_jour();
