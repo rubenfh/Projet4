@@ -275,6 +275,68 @@ class GraphInterface
         /// Dans cette boite seront ajoutés des boutons de contrôle etc...
         grman::WidgetBox m_tool_box;
 
+        /// BOUTONS GRAPHE 1,2,3 (Ecriture dans Boutons dans Boites)
+
+        grman::WidgetBox m_box_menu;
+        grman::WidgetButton m_bouton1;
+        grman::WidgetText m_bouton1_label;
+
+        grman::WidgetBox m_box_menu2;
+        grman::WidgetButton m_bouton1bis;
+        grman::WidgetText m_bouton1bis_label;
+
+        grman::WidgetBox m_box_menu3;
+        grman::WidgetButton m_bouton1ter;
+        grman::WidgetText m_bouton1ter_label;
+
+        /// BOUTONS SAUV GRAPHE 1,2,3 (Ecriture dans Boutons dans Boites)
+
+        grman::WidgetBox m_box_sauve;
+        grman::WidgetButton m_bouton2;
+        grman::WidgetText m_bouton2_label;
+
+        grman::WidgetBox m_box_sauvebis;
+        grman::WidgetButton m_bouton2bis;
+        grman::WidgetText m_bouton2bis_label;
+
+        grman::WidgetBox m_box_sauveter;
+        grman::WidgetButton m_bouton2ter;
+        grman::WidgetText m_bouton2ter_label;
+
+        /// BOUTON ADD ARETTE (Ecriture dans Boutons dans Boites)
+
+        grman::WidgetBox m_box_add;
+        grman::WidgetButton m_bouton3;
+        grman::WidgetText m_bouton3_label;
+
+        /// BOUTON ADD SOMMET (Ecriture dans Boutons dans Boites)
+
+        grman::WidgetBox m_box_add2;
+        grman::WidgetButton m_bouton3bis;
+        grman::WidgetText m_bouton3bis_label;
+
+        /// BOUTON REMOVE SOMMET (Ecriture dans Boutons dans Boites)
+
+        grman::WidgetBox m_box_remove;
+        grman::WidgetButton m_bouton4;
+        grman::WidgetText m_bouton4_label;
+
+        /// BOUTON REMOVE ARETTE (Ecriture dans Boutons dans Boites)
+
+        grman::WidgetBox m_box_remove2;
+        grman::WidgetButton m_bouton4bis;
+        grman::WidgetText m_bouton4bis_label;
+
+        /// BOUTONS F ET K CONNEXE (Ecriture dans Boutons dans Boites)
+
+        grman::WidgetBox m_box_fconnexe;
+        grman::WidgetButton m_bouton5;
+        grman::WidgetText m_bouton5_label;
+
+        grman::WidgetBox m_box_kconnexe;
+        grman::WidgetButton m_bouton5bis;
+        grman::WidgetText m_bouton5bis_label;
+
 
         // A compléter éventuellement par des widgets de décoration ou
         // d'édition (boutons ajouter/enlever ...)
@@ -290,7 +352,23 @@ class GraphInterface
 
 class Graph
 {
+    friend class GraphInterface;
+
     private :
+
+        grman::WidgetBox m_top_box;
+        grman::WidgetButton m_bouton1;
+        grman::WidgetButton m_bouton1bis;
+        grman::WidgetButton m_bouton1ter;
+        grman::WidgetButton m_bouton2;
+        grman::WidgetButton m_bouton2bis;
+        grman::WidgetButton m_bouton2ter;
+        grman::WidgetButton m_bouton3;
+        grman::WidgetButton m_bouton3bis;
+        grman::WidgetButton m_bouton4;
+        grman::WidgetButton m_bouton4bis;
+        grman::WidgetButton m_bouton5;
+        grman::WidgetButton m_bouton5bis;
 
         /// La "liste" des arêtes
         std::map<int, Edge> m_edges;
@@ -333,6 +411,9 @@ class Graph
 
         void Ajouter1();
         void erase1edge(int eidx);
+        void addvertex();
+        void supprimer1arrette();
+        void supVertex();
 
         void initMatriceAdj();
         void SCC();
@@ -344,6 +425,8 @@ class Graph
         void pred();
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
+
+        void erasegraphe();
 };
 
 

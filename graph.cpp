@@ -163,6 +163,191 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_main_box.set_dim(908,720);
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
     m_main_box.set_bg_color(BLANCJAUNE);
+
+    ///RETOUR GRAPHE 1
+
+    m_tool_box.add_child(m_box_menu);
+    m_box_menu.set_dim(74,50);
+    m_box_menu.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
+    m_box_menu.set_bg_color(ROUGECLAIR);
+
+    m_box_menu.add_child( m_bouton1 );
+    m_bouton1.set_frame(7,7,64,41);
+    m_bouton1.set_bg_color(ROUGESOMBRE);
+
+    m_bouton1.add_child(m_bouton1_label);
+    m_bouton1_label.set_message("GRAPHE 1");
+
+    ///RETOUR GRAPHE 2
+
+    m_tool_box.add_child(m_box_menu2);                      //On crée une boite fille de la tool Box
+    m_box_menu2.set_dim(74,50);                             //On la dimensionne
+    m_box_menu2.set_gravity_x(grman::GravityX::Left);       //On la place sur l'extreme Gauche de l'écran
+    m_box_menu2.set_posy(56);                               //On regle sa position en Hauteur
+    m_box_menu2.set_bg_color(ROUGECLAIR);                   //On lui donne une couleur
+
+    m_box_menu2.add_child( m_bouton1bis );                  //On crée un bouton dans la boite créée précedemment
+    m_bouton1bis.set_frame(7,7,64,41);                      //On lui attribue des coordonnées à l'intérieur de la boite
+    m_bouton1bis.set_bg_color(ROUGESOMBRE);                 //On lui donne une couleur différente de celle de le boite afin de la rendre visible
+
+    m_bouton1bis.add_child(m_bouton1bis_label);             //On ajoute la possibilité d'écrire dans le bouton
+    m_bouton1bis_label.set_message("GRAPHE 2");             //On écrit dans la boite
+
+
+    ///RETOUR GRAPHE 3
+
+    m_tool_box.add_child(m_box_menu3);
+    m_box_menu3.set_dim(74,50);
+    m_box_menu3.set_gravity_x(grman::GravityX::Left);
+    m_box_menu3.set_posy(111);
+    m_box_menu3.set_bg_color(ROUGECLAIR);
+
+    m_box_menu3.add_child( m_bouton1ter );
+    m_bouton1ter.set_frame(7,7,64,41);
+    m_bouton1ter.set_bg_color(ROUGESOMBRE);
+
+    m_bouton1ter.add_child(m_bouton1ter_label);
+    m_bouton1ter_label.set_message("GRAPHE 3");
+
+
+    ///SAUVE
+
+    m_tool_box.add_child(m_box_sauve);
+    m_box_sauve.set_dim(74,50);
+    m_box_sauve.set_gravity_x(grman::GravityX::Left);
+    m_box_sauve.set_posy(166);
+    m_box_sauve.set_bg_color(VERTCLAIR);
+
+    m_box_sauve.add_child( m_bouton2 );
+    m_bouton2.set_frame(7,7,64,41);
+    m_bouton2.set_bg_color(VERTSOMBRE);
+
+    m_bouton2.add_child(m_bouton2_label);
+    m_bouton2_label.set_message("SAVE G1");
+
+
+    ///SAUVE GRAPHE 2
+
+    m_tool_box.add_child(m_box_sauvebis);
+    m_box_sauvebis.set_dim(74,50);
+    m_box_sauvebis.set_gravity_x(grman::GravityX::Left);
+    m_box_sauvebis.set_posy(221);
+    m_box_sauvebis.set_bg_color(VERTCLAIR);
+
+    m_box_sauvebis.add_child( m_bouton2bis );
+    m_bouton2bis.set_frame(7,7,64,41);
+    m_bouton2bis.set_bg_color(VERTSOMBRE);
+
+    m_bouton2bis.add_child(m_bouton2bis_label);
+    m_bouton2bis_label.set_message("SAVE G2");
+
+
+    ///SAUVE GRAPGHE 3
+
+    m_tool_box.add_child(m_box_sauveter);
+    m_box_sauveter.set_dim(74,50);
+    m_box_sauveter.set_gravity_x(grman::GravityX::Left);
+    m_box_sauveter.set_posy(276);
+    m_box_sauveter.set_bg_color(VERTCLAIR);
+
+    m_box_sauveter.add_child( m_bouton2ter );
+    m_bouton2ter.set_frame(7,7,64,41);
+    m_bouton2ter.set_bg_color(VERTSOMBRE);
+
+    m_bouton2ter.add_child(m_bouton2ter_label);
+    m_bouton2ter_label.set_message("SAVE G3");
+
+
+    ///ADD ARETTE
+
+    m_tool_box.add_child(m_box_add);
+    m_box_add.set_dim(74,50);
+    m_box_add.set_gravity_x(grman::GravityX::Left);
+    m_box_add.set_bg_color(JAUNECLAIR);
+    m_box_add.set_posy(331);
+
+    m_box_add.add_child( m_bouton3 );
+    m_bouton3.set_frame(7,7,64,41);
+    m_bouton3.set_bg_color(JAUNESOMBRE);
+
+    m_bouton3.add_child(m_bouton3_label);
+    m_bouton3_label.set_message("ADD A");
+
+    ///ADD SOMMET
+
+    m_tool_box.add_child(m_box_add2);
+    m_box_add2.set_dim(74,50);
+    m_box_add2.set_gravity_x(grman::GravityX::Left);
+    m_box_add2.set_bg_color(JAUNECLAIR);
+    m_box_add2.set_posy(386);
+
+    m_box_add2.add_child( m_bouton3bis );
+    m_bouton3bis.set_frame(7,7,64,41);
+    m_bouton3bis.set_bg_color(JAUNESOMBRE);
+
+    m_bouton3bis.add_child(m_bouton3bis_label);
+    m_bouton3bis_label.set_message("ADD S");
+
+
+    ///REMOVE SOMMET
+
+    m_tool_box.add_child(m_box_remove);
+    m_box_remove.set_dim(74,50);
+    m_box_remove.set_gravity_x(grman::GravityX::Left);
+    m_box_remove.set_posy(441);
+    m_box_remove.set_bg_color(ORANGECLAIR);
+
+    m_box_remove.add_child( m_bouton4 );
+    m_bouton4.set_frame(7,7,64,41);
+    m_bouton4.set_bg_color(ORANGESOMBRE);
+
+    m_bouton4.add_child(m_bouton4_label);
+    m_bouton4_label.set_message("REMOVE S");
+
+    ///REMOVE ARETTE
+
+    m_tool_box.add_child(m_box_remove2);
+    m_box_remove2.set_dim(74,50);
+    m_box_remove2.set_gravity_x(grman::GravityX::Left);
+    m_box_remove2.set_posy(496);
+    m_box_remove2.set_bg_color(ORANGECLAIR);
+
+    m_box_remove2.add_child( m_bouton4bis );
+    m_bouton4bis.set_frame(7,7,64,41);
+    m_bouton4bis.set_bg_color(ORANGESOMBRE);
+
+    m_bouton4bis.add_child(m_bouton4bis_label);
+    m_bouton4bis_label.set_message("REMOVE A");
+
+    ///FORTEMENT CONNEXE
+
+    m_tool_box.add_child(m_box_fconnexe);
+    m_box_fconnexe.set_dim(74,50);
+    m_box_fconnexe.set_gravity_x(grman::GravityX::Left);
+    m_box_fconnexe.set_posy(551);
+    m_box_fconnexe.set_bg_color(BLEUCLAIR);
+
+    m_box_fconnexe.add_child( m_bouton5 );
+    m_bouton5.set_frame(7,7,64,41);
+    m_bouton5.set_bg_color(BLEU);
+
+    m_bouton5.add_child(m_bouton5_label);
+    m_bouton5_label.set_message("F CON");
+
+    ///K CONNEXE
+
+    m_tool_box.add_child(m_box_kconnexe);
+    m_box_kconnexe.set_dim(74,50);
+    m_box_kconnexe.set_gravity_x(grman::GravityX::Left);
+    m_box_kconnexe.set_posy(606);
+    m_box_kconnexe.set_bg_color(BLEUCLAIR);
+
+    m_box_kconnexe.add_child( m_bouton5bis );
+    m_bouton5bis.set_frame(7,7,64,41);
+    m_bouton5bis.set_bg_color(BLEU);
+
+    m_bouton5bis.add_child(m_bouton5bis_label);
+    m_bouton5bis_label.set_message("K CON");
 }
 
 
@@ -317,6 +502,8 @@ void Graph::make_example3()
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 void Graph::update()
 {
+    Graph g;
+
     if (!m_interface)
         return;
 
@@ -332,34 +519,50 @@ void Graph::update()
         elt.second.post_update();
     for (auto &elt : m_edges)
         elt.second.post_update();
-    if(key[KEY_S])
-    {
-        Supprimer();
-    }
+        m_top_box.update();
 
-    if(key[KEY_Q])
+
+    if(m_interface->m_bouton3.clicked())
     {
         Ajouter1();
     }
 
-    if (key[KEY_C])
+    if (m_interface->m_bouton2.clicked())
     {
         savecoord1( m_vertices);
     }
 
-    if (key[KEY_V])
+    if (m_interface->m_bouton2bis.clicked())
     {
         savecoord2(m_vertices);
     }
 
-    if (key[KEY_B])
+    if (m_interface->m_bouton2ter.clicked())
     {
         savecoord3(m_vertices);
     }
-    if(key[KEY_E])
+    if(m_interface->m_bouton5.clicked())
     {
         initMatriceAdj();
         SCC();
+    }
+    if (m_interface->m_bouton3bis.clicked())
+    {
+        addvertex();
+    }
+    if(m_interface->m_bouton4bis.clicked())
+    {
+        supprimer1arrette();
+    }
+
+    if(m_interface->m_bouton4.clicked())
+    {
+        supVertex();
+    }
+
+    if (key[KEY_X])
+    {
+        supVertex();
     }
 }
 
@@ -401,13 +604,13 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     m_edges[idx].m_to=id_vert2;
     m_vertices[id_vert1].m_out.push_back(idx);
     m_vertices[id_vert2].m_out.push_back(idx);
-     m_vertices[id_vert1].m_in.push_back(idx);
+    m_vertices[id_vert1].m_in.push_back(idx);
     m_vertices[id_vert2].m_in.push_back(idx);
 
 
 }
 
-
+///sauvegarde dans l'ordre 1-2-3
 void Graph::savecoord1(std::map<int, Vertex> m_vertices)
 {
     std::string buff;
@@ -486,6 +689,8 @@ void Graph::savecoord3(std::map<int, Vertex> m_vertices)
     fichier1.close();
 }
 
+
+///supprimer toutes les arrettes connectées à un sommet
 void Graph::Supprimer()
 {
     int n;
@@ -505,6 +710,8 @@ void Graph::Supprimer()
         }
     }
 }
+
+///ajouter une arrette
 void Graph::Ajouter1()
 {
     unsigned int n=0,sommet1,sommet2;
@@ -550,7 +757,76 @@ void Graph::Ajouter1()
     //fichier1.close();
 
 }
+///ajouter un sommet
+void Graph::addvertex()
+{
+    int n=0;
+    bool indiceu;
+    double valeur;
+    string image;
 
+
+    for(unsigned int i = 0; i <= m_vertices.size(); i++)
+    {
+        indiceu = false;
+        for(auto &ln : m_vertices)
+        {
+            if(ln.first == i)
+            {
+                indiceu=true; //on définit
+            }
+        }
+        if(indiceu!=true)
+        {
+            n=i; // si l'indice est différent d'un ndice existant n prends la valeur de l'indice
+            break;
+        }
+    }
+
+
+    cout<<"saisir un effectif : ";
+    std:: cin>>valeur;
+    std::cout<<"saisir un nom d'image: ";
+    std::cin>>image;
+
+
+
+
+    add_interfaced_vertex(n,valeur, 400, 300,image);
+
+}
+
+///supprimer une seule arrette
+
+void Graph::supprimer1arrette()
+{   std::cout<< "quelle arrete voulez vous supprimer?"<<std::endl;
+    int n;
+    std::cin >>n;
+    test_remove_edge(n);
+
+            //test_remove_edge(m_edges[n]);
+
+        }
+
+void Graph::supVertex()
+{   int n;
+    Supprimer();
+    std::cout <<"les arretes adj ont ete supprimees"<<std::endl;
+    std::cout<<"reecrivez votre chiffre si vous etes sur de vouloir supprimer ce sommet"<<std::endl;
+    std::cin >> n;
+    Vertex &supver=m_vertices.at(n);
+    if(m_interface && supver.m_interface)
+    {
+        m_interface->m_main_box.remove_child( supver.m_interface->m_top_box );
+    }
+
+
+    m_vertices.erase(n);
+}
+
+
+
+///Matrice d'adjaceance
 void Graph::initMatriceAdj()
 {
 
@@ -561,43 +837,40 @@ void Graph::initMatriceAdj()
         adj[m_edges[i].m_from].push_back(m_edges[i].m_to);
     }
 }
+
+///aide à la composante fortement connexe
 void Graph::SCCutil(int u, int disc[], int low[], stack<int> *st,bool stackmember[])
 {
 
 
     static int time = 0;
 
-    // Initialize discovery time and low value
+    // initialise la valeur en fonction du temps
     disc[u] = low[u] = ++time;
     st->push(u);
     stackmember[u] = true;
 
-    // Go through all vertices adjacent to this
+    // passe par tous les sommets
     list<int>::iterator i;
     for (i = adj[u].begin(); i != adj[u].end(); ++i)
     {
-        int v = *i;  // v is current adjacent of 'u'
+        int v = *i;  // v adjacence de u
 
-        // If v is not visited yet, then recur for it
+        // si v n'est pas encore appellé
         if (disc[v] == -1)
         {
-            SCCutil(v, disc, low, st, stackmember);
-
-            // Check if the subtree rooted with 'v' has a
-            // connection to one of the ancestors of 'u'
-            // Case 1 (per above discussion on Disc and Low value)
+            SCCutil(v, disc, low, st, stackmember); //recursivité
             low[u]  = min(low[u], low[v]);
         }
 
-        // Update low value of 'u' only of 'v' is still in stack
-        // (i.e. it's a back edge, not cross edge).
-        // Case 2 (per above discussion on Disc and Low value)
+        // regarde la plus petite valeur entre v et u
+
         else if (stackmember[v] == true)
             low[u]  = min(low[u], disc[v]);
     }
 
-    // head node found, pop the stack and print an SCC
-    int w = 0;  // To store stack extracted vertices
+
+    int w = 0;
     if (low[u] == disc[u])
     {
         while (st->top() != u)
@@ -613,7 +886,7 @@ void Graph::SCCutil(int u, int disc[], int low[], stack<int> *st,bool stackmembe
         st->pop();
     }
 }
-
+///composante fortement connexe
 void Graph::SCC()
 {
     int* disc =new int [m_edges.size()];
@@ -623,7 +896,7 @@ void Graph::SCC()
 
     for(unsigned int i=0; i<m_edges.size(); i++)
     {
-        disc[i]=-1;
+        disc[i]=-1; //on dit que le tableau est vide
         low[i]=-1;
         stackmember[i]=false;
     }
@@ -632,42 +905,16 @@ void Graph::SCC()
     {
         if (disc[i]==-1)
         {
-            SCCutil(i,disc,low,st,stackmember);
+            SCCutil(i,disc,low,st,stackmember); //on appelle ssc util
         }
     }
 }
 
-
+///3ème partie
 
 void Graph::PartieFonctionnelle()
 {
 
-  /*  float k=0.00001;
-
-    pred();
-   // calculK();
-    //calculN();
-
-    for (auto &tx: m_vertices)
-    {
-        for( auto &ty: tx.second.m_in)
-        {
-            for(auto &tz:m_edges)
-            {      //calcul de k avec un r =0.000001
-                  k+= 0.0000001*tz.second.m_weight* m_vertices[ty].m_value/m_vertices.size();
-            }
-        }
-        //on considère qu'il y a de l'herbe à l'infini
-       if(tx.second.m_interface->m_img.m_pic_name=="herbe.jpg")
-       {
-           tx.second.m_value=100;
-       }
-        if (tx.second.m_value >0)
-        {
-            //tx.second.m_value=( tx.second.m_value)+0.01*(1-( tx.second.m_value)/(k));
-            tx.second.m_value= tx.second.m_value + 0.0000001*tx.second.m_value*(1 - (tx.second.m_value/(k/1.2))) -(k/100);
-        }
-    }*/
 
 
     float val;
@@ -683,12 +930,12 @@ void Graph::PartieFonctionnelle()
         {
             if( ln.second.m_to==tx.first)
             {
-                k+=ln.second.m_weight*r*m_vertices[ln.second.m_from].m_value;
+                k+=ln.second.m_weight*r*m_vertices[ln.second.m_from].m_value; //fromule du coef k
                 pred=true;
             }
             if(ln.second.m_from==tx.first)
             {
-                predation+=ln.second.m_weight*r*m_vertices[ln.second.m_to].m_value;
+                predation+=ln.second.m_weight*r*m_vertices[ln.second.m_to].m_value; //fromule mathématique de la prédation
             }
         }
 
@@ -705,11 +952,13 @@ void Graph::PartieFonctionnelle()
 
 
 
-
+     ///valeur  calculé de l'indice
         val = tx.second.m_value+0.05*(tx.second.m_value*(1-tx.second.m_value/k)-predation);
 
         stc.insert(std::make_pair(tx.first,val));
     }
+
+
     for( auto &ty: stc)
     {
         for (auto &tz: m_vertices)
@@ -718,23 +967,14 @@ void Graph::PartieFonctionnelle()
 
             {
 
-                tz.second.m_value=ty.second;
+                tz.second.m_value=ty.second; //on associe une valeur qui change en focntion du temps à la value de chaque individu
             }
         }
     }
 
+}
 
-
-
-
-
-
-
-
-
-    }
-
-
+///tentatives
 /*void Graph::calculK()
 {
     for(unsigned int i=0; i<m_vertices.size(); i++)
@@ -789,43 +1029,29 @@ void Graph::calculN()
 
 void Graph::pred()
 {
-  int arc,sommet,nb;
+    int arc,sommet,nb;
 
-  for(unsigned int i=0; i<m_edges.size();i++)
-  {
-      nb=m_vertices[i].m_in.size();
-      for(int j=0;j<nb;j++)
-      {
-          arc=m_vertices[i].m_in[j];
-          sommet=m_edges[arc].m_to;
-          m_vertices[i].m_predecesseur.push_back(sommet);
-          /*for(int k=0;k<m_vertices[i].m_predecesseur.size();k++)
-          {
-              std::cout <<i<< " "<<m_vertices[i].m_predecesseur[k];
-
-          }*/
-
-      }
-  }
-
-}
-
-
-void Graph::erase1edge(int eidx)
-{
-
-
-    Edge &remed=m_edges.at(eidx);
-    if (m_interface && remed.m_interface)
+    for(unsigned int i=0; i<m_edges.size(); i++)
     {
-        m_interface->m_main_box.remove_child( remed.m_interface->m_top_edge );
+        nb=m_vertices[i].m_in.size();
+        for(int j=0; j<nb; j++)
+        {
+            arc=m_vertices[i].m_in[j];
+            sommet=m_edges[arc].m_to;
+            m_vertices[i].m_predecesseur.push_back(sommet);/// on ajoute un sommet au tableau de prédécesseur
+            /*for(int k=0;k<m_vertices[i].m_predecesseur.size();k++)
+            {
+                std::cout <<i<< " "<<m_vertices[i].m_predecesseur[k];
+
+            }*/
+
+        }
     }
-    std::vector<int> &vefrom = m_vertices[remed.m_from].m_out;
-    std::vector<int> &veto = m_vertices[remed.m_to].m_in;
-    vefrom.erase( std::remove( vefrom.begin(), vefrom.end(), eidx ), vefrom.end() );
-    veto.erase( std::remove( veto.begin(), veto.end(), eidx ), veto.end() );
-    m_edges.erase( eidx );
+
 }
+
+
+
 
 
 /// eidx index of edge to remove
@@ -872,5 +1098,9 @@ void Graph::test_remove_edge(int eidx)
     std::cout << m_edges.size() << std::endl;
 
 }
+
+
+
+
 
 

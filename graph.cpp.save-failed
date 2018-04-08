@@ -361,6 +361,14 @@ void Graph::update()
         initMatriceAdj();
         SCC();
     }
+    if (key[KEY_T])
+    {
+        addvertex();
+    }
+    if(key[KEY_Y])
+    {
+        supprimer1arrette();
+    }
 }
 
 /// Aide à l'ajout de sommets interfacés
@@ -401,13 +409,13 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     m_edges[idx].m_to=id_vert2;
     m_vertices[id_vert1].m_out.push_back(idx);
     m_vertices[id_vert2].m_out.push_back(idx);
-     m_vertices[id_vert1].m_in.push_back(idx);
+    m_vertices[id_vert1].m_in.push_back(idx);
     m_vertices[id_vert2].m_in.push_back(idx);
 
 
 }
 
-
+///sauvegarde dans l'ordre 1-2-3
 void Graph::savecoord1(std::map<int, Vertex> m_vertices)
 {
     std::string buff;
@@ -486,6 +494,8 @@ void Graph::savecoord3(std::map<int, Vertex> m_vertices)
     fichier1.close();
 }
 
+
+///supprimer tutes les arrettes connectées à un sommet
 void Graph::Supprimer()
 {
     int n;
@@ -505,6 +515,8 @@ void Graph::Supprimer()
         }
     }
 }
+
+///ajouter une arrette
 void Graph::Ajouter1()
 {
     unsigned int n=0,sommet1,sommet2;
@@ -550,7 +562,73 @@ void Graph::Ajouter1()
     //fichier1.close();
 
 }
+///ajouter un sommet
+void Graph::addvertex()
+{
+    int n=0;
+    bool indiceu;
+    double valeur;
+    string image;
 
+
+    for(int i = 0; i <= m_vertices.size(); i++)
+    {
+        indiceu = false;
+        for(auto &ln : m_vertices)
+        {
+            if(ln.first == i)
+            {
+                indiceu=true; //on définit
+            }
+        }
+        if(indiceu!=true)
+        {
+            n=i; // si l'indice est différent d'un ndice existant n prends la valeur de l'indice
+            break;
+        }
+    }
+
+
+    cout<<"saisir un effectif : ";
+    std:: cin>>valeur;
+    std::cout<<"saisir un nom d'image: ";
+    std::cin>>image;
+
+
+
+
+    add_interfaced_vertex(n,valeur, 400, 300,image);
+
+}
+
+///supprimer une seule arrette
+
+void Graph::supprimer1arrette()
+{   int n;
+    std::cin >>n;
+
+            //test_remove_edge(m_edges[n]);
+
+        }
+
+void Graph::supVertex()
+{  int n;
+    std::cout <<"quel sommet voulez vous détruir?";
+     std::cin>> n;
+    Supprimer();
+    Vertex &supver=m_vertices.at(n);
+    if(m_interface && supver.m_interface)
+    {
+        m_interface->m_main_box.remove_child( supver.m_interface->m_top_box );
+    }
+
+
+    m_vertices.erase(n);
+}
+
+
+
+///Matrice d'adjaceance
 void Graph::initMatriceAdj()
 {
 
@@ -561,6 +639,8 @@ void Graph::initMatriceAdj()
         adj[m_edges[i].m_from].push_back(m_edges[i].m_to);
     }
 }
+
+///aide à la composante fortement connexe
 void Graph::SCCutil(int u, int disc[], int low[], stack<int> *st,bool stackmember[])
 {
 
@@ -613,7 +693,7 @@ void Graph::SCCutil(int u, int disc[], int low[], stack<int> *st,bool stackmembe
         st->pop();
     }
 }
-
+///composante fortement connexe
 void Graph::SCC()
 {
     int* disc =new int [m_edges.size()];
@@ -637,37 +717,11 @@ void Graph::SCC()
     }
 }
 
-
+///3ème partie
 
 void Graph::PartieFonctionnelle()
 {
 
-  /*  float k=0.00001;
-
-    pred();
-   // calculK();
-    //calculN();
-
-    for (auto &tx: m_vertices)
-    {
-        for( auto &ty: tx.second.m_in)
-        {
-            for(auto &tz:m_edges)
-            {      //calcul de k avec un r =0.000001
-                  k+= 0.0000001*tz.second.m_weight* m_vertices[ty].m_value/m_vertices.size();
-            }
-        }
-        //on considère qu'il y a de l'herbe à l'infini
-       if(tx.second.m_interface->m_img.m_pic_name=="herbe.jpg")
-       {
-           tx.second.m_value=100;
-       }
-        if (tx.second.m_value >0)
-        {
-            //tx.second.m_value=( tx.second.m_value)+0.01*(1-( tx.second.m_value)/(k));
-            tx.second.m_value= tx.second.m_value + 0.0000001*tx.second.m_value*(1 - (tx.second.m_value/(k/1.2))) -(k/100);
-        }
-    }*/
 
 
     float val;
@@ -708,8 +762,10 @@ void Graph::PartieFonctionnelle()
 
         val = tx.second.m_value+0.05*(tx.second.m_value*(1-tx.second.m_value/k)-predation);
 
-        stc.insert(std::make_pair(tx.first,valeur));
+        stc.insert(std::make_pair(tx.first,val));
     }
+
+
     for( auto &ty: stc)
     {
         for (auto &tz: m_vertices)
@@ -718,23 +774,14 @@ void Graph::PartieFonctionnelle()
 
             {
 
-                tz.second.m_value=ty.second;
+                tz.second.m_value=ty.second; //on associe une valeur qui change en focntion du temps à la value de chaque individu
             }
         }
     }
 
+}
 
-
-
-
-
-
-
-
-
-    }
-
-
+///tentatives
 /*void Graph::calculK()
 {
     for(unsigned int i=0; i<m_vertices.size(); i++)
@@ -789,43 +836,29 @@ void Graph::calculN()
 
 void Graph::pred()
 {
-  int arc,sommet,nb;
+    int arc,sommet,nb;
 
-  for(unsigned int i=0; i<m_edges.size();i++)
-  {
-      nb=m_vertices[i].m_in.size();
-      for(int j=0;j<nb;j++)
-      {
-          arc=m_vertices[i].m_in[j];
-          sommet=m_edges[arc].m_to;
-          m_vertices[i].m_predecesseur.push_back(sommet);
-          /*for(int k=0;k<m_vertices[i].m_predecesseur.size();k++)
-          {
-              std::cout <<i<< " "<<m_vertices[i].m_predecesseur[k];
-
-          }*/
-
-      }
-  }
-
-}
-
-
-void Graph::erase1edge(int eidx)
-{
-
-
-    Edge &remed=m_edges.at(eidx);
-    if (m_interface && remed.m_interface)
+    for(unsigned int i=0; i<m_edges.size(); i++)
     {
-        m_interface->m_main_box.remove_child( remed.m_interface->m_top_edge );
+        nb=m_vertices[i].m_in.size();
+        for(int j=0; j<nb; j++)
+        {
+            arc=m_vertices[i].m_in[j];
+            sommet=m_edges[arc].m_to;
+            m_vertices[i].m_predecesseur.push_back(sommet);
+            /*for(int k=0;k<m_vertices[i].m_predecesseur.size();k++)
+            {
+                std::cout <<i<< " "<<m_vertices[i].m_predecesseur[k];
+
+            }*/
+
+        }
     }
-    std::vector<int> &vefrom = m_vertices[remed.m_from].m_out;
-    std::vector<int> &veto = m_vertices[remed.m_to].m_in;
-    vefrom.erase( std::remove( vefrom.begin(), vefrom.end(), eidx ), vefrom.end() );
-    veto.erase( std::remove( veto.begin(), veto.end(), eidx ), veto.end() );
-    m_edges.erase( eidx );
+
 }
+
+
+
 
 
 /// eidx index of edge to remove
