@@ -275,6 +275,49 @@ class GraphInterface
         /// Dans cette boite seront ajoutés des boutons de contrôle etc...
         grman::WidgetBox m_tool_box;
 
+        grman::WidgetBox m_box_menu;
+        grman::WidgetButton m_bouton1;
+        grman::WidgetText m_bouton1_label;
+
+        grman::WidgetBox m_box_menu2;
+        grman::WidgetButton m_bouton1bis;
+        grman::WidgetText m_bouton1bis_label;
+
+        grman::WidgetBox m_box_menu3;
+        grman::WidgetButton m_bouton1ter;
+        grman::WidgetText m_bouton1ter_label;
+
+
+        grman::WidgetBox m_box_sauve;
+        grman::WidgetButton m_bouton2;
+        grman::WidgetText m_bouton2_label;
+
+        grman::WidgetBox m_box_sauvebis;
+        grman::WidgetButton m_bouton2bis;
+        grman::WidgetText m_bouton2bis_label;
+
+        grman::WidgetBox m_box_sauveter;
+        grman::WidgetButton m_bouton2ter;
+        grman::WidgetText m_bouton2ter_label;
+
+        grman::WidgetBox m_box_add;
+        grman::WidgetButton m_bouton3;
+        grman::WidgetText m_bouton3_label;
+
+        grman::WidgetBox m_box_remove;
+        grman::WidgetButton m_bouton4;
+        grman::WidgetText m_bouton4_label;
+
+        grman::WidgetBox m_box_fconnexe;
+        grman::WidgetButton m_bouton5;
+        grman::WidgetText m_bouton5_label;
+
+        grman::WidgetBox m_box_kconnexe;
+        grman::WidgetButton m_bouton5bis;
+        grman::WidgetText m_bouton5bis_label;
+
+
+
 
         // A compléter éventuellement par des widgets de décoration ou
         // d'édition (boutons ajouter/enlever ...)
@@ -290,7 +333,15 @@ class GraphInterface
 
 class Graph
 {
+    friend class GraphInterface;
+
     private :
+
+    grman::WidgetBox m_top_box;
+    grman::WidgetButton m_bouton1;
+    grman::WidgetButton m_bouton2;
+    grman::WidgetButton m_bouton3;
+    grman::WidgetButton m_bouton4;
 
         /// La "liste" des arêtes
         std::map<int, Edge> m_edges;
@@ -328,6 +379,7 @@ class Graph
 
         void Supprimer();
         void test_remove_edge(int eidx);
+<<<<<<< HEAD
         int newcmpt();
 
 
@@ -337,6 +389,12 @@ class Graph
         void initMatriceAdj();
         void SCC();
         void SCCutil(int u, int disc[], int low[], std::stack<int> *st,bool stackmember[]);
+=======
+        void test_remove_vertex(int eidx);
+
+        void Ajouter1();
+        void suppr();
+>>>>>>> origin/wilfrid
 
         void PartieFonctionnelle();
         void calculN();
