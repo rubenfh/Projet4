@@ -155,30 +155,58 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_tool_box.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
     m_tool_box.set_bg_color(BLANCBLEU);
 
-    ///MENU
+    ///RETOUR GRAPHE 1
     m_tool_box.add_child(m_box_menu);
-    m_box_menu.set_dim(74,74);
+    m_box_menu.set_dim(74,50);
     m_box_menu.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
     m_box_menu.set_bg_color(ROUGECLAIR);
 
     m_box_menu.add_child( m_bouton1 );
-    m_bouton1.set_frame(10,10,59,59);
+    m_bouton1.set_frame(7,7,64,41);
     m_bouton1.set_bg_color(ROUGESOMBRE);
 
     m_bouton1.add_child(m_bouton1_label);
-    m_bouton1_label.set_message("MENU");
+    m_bouton1_label.set_message("GRAPHE1");
+
+    ///RETOUR GRAPHE 2
+    m_tool_box.add_child(m_box_menu2);
+    m_box_menu2.set_dim(74,50);
+    m_box_menu2.set_gravity_x(grman::GravityX::Left);
+    m_box_menu2.set_posy(56);
+    m_box_menu2.set_bg_color(ROUGECLAIR);
+
+    m_box_menu2.add_child( m_bouton1bis );
+    m_bouton1bis.set_frame(7,7,64,41);
+    m_bouton1bis.set_bg_color(ROUGESOMBRE);
+
+    m_bouton1bis.add_child(m_bouton1bis_label);
+    m_bouton1bis_label.set_message("GRAPHE2");
+
+    ///RETOUR GRAPHE 3
+    m_tool_box.add_child(m_box_menu3);
+    m_box_menu3.set_dim(74,50);
+    m_box_menu3.set_gravity_x(grman::GravityX::Left);
+    m_box_menu3.set_posy(111);
+    m_box_menu3.set_bg_color(ROUGECLAIR);
+
+    m_box_menu3.add_child( m_bouton1ter );
+    m_bouton1ter.set_frame(7,7,64,41);
+    m_bouton1ter.set_bg_color(ROUGESOMBRE);
+
+    m_bouton1ter.add_child(m_bouton1ter_label);
+    m_bouton1ter_label.set_message("GRAPHE3");
 
 
     ///SAUVE
 
     m_tool_box.add_child(m_box_sauve);
-    m_box_sauve.set_dim(74,74);
+    m_box_sauve.set_dim(74,50);
     m_box_sauve.set_gravity_x(grman::GravityX::Left);
-    m_box_sauve.set_posy(80);
+    m_box_sauve.set_posy(166);
     m_box_sauve.set_bg_color(VERTCLAIR);
 
     m_box_sauve.add_child( m_bouton2 );
-    m_bouton2.set_frame(10,10,59,59);
+    m_bouton2.set_frame(7,7,64,41);
     m_bouton2.set_bg_color(VERTSOMBRE);
 
     m_bouton2.add_child(m_bouton2_label);
@@ -187,14 +215,14 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     ///SAUVE GRAPHE 2
 
     m_tool_box.add_child(m_box_sauvebis);
-    m_box_sauvebis.set_dim(74,74);
+    m_box_sauvebis.set_dim(74,50);
     m_box_sauvebis.set_gravity_x(grman::GravityX::Left);
-    m_box_sauvebis.set_posy(160);
-    m_box_sauvebis.set_bg_color(ROSECLAIR);
+    m_box_sauvebis.set_posy(221);
+    m_box_sauvebis.set_bg_color(VERTCLAIR);
 
     m_box_sauvebis.add_child( m_bouton2bis );
-    m_bouton2bis.set_frame(10,10,59,59);
-    m_bouton2bis.set_bg_color(ROSESOMBRE);
+    m_bouton2bis.set_frame(7,7,64,41);
+    m_bouton2bis.set_bg_color(VERTSOMBRE);
 
     m_bouton2bis.add_child(m_bouton2bis_label);
     m_bouton2bis_label.set_message("SAVE G2");
@@ -202,14 +230,14 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     ///SAUVE GRAPGHE 3
 
     m_tool_box.add_child(m_box_sauveter);
-    m_box_sauveter.set_dim(74,74);
+    m_box_sauveter.set_dim(74,50);
     m_box_sauveter.set_gravity_x(grman::GravityX::Left);
-    m_box_sauveter.set_posy(240);
-    m_box_sauveter.set_bg_color(BLEUCLAIR);
+    m_box_sauveter.set_posy(276);
+    m_box_sauveter.set_bg_color(VERTCLAIR);
 
     m_box_sauveter.add_child( m_bouton2ter );
-    m_bouton2ter.set_frame(10,10,59,59);
-    m_bouton2ter.set_bg_color(BLEUSOMBRE);
+    m_bouton2ter.set_frame(7,7,64,41);
+    m_bouton2ter.set_bg_color(VERTSOMBRE);
 
     m_bouton2ter.add_child(m_bouton2ter_label);
     m_bouton2ter_label.set_message("SAVE G3");
@@ -217,13 +245,13 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 
     ///ADD
     m_tool_box.add_child(m_box_add);
-    m_box_add.set_dim(74,74);
+    m_box_add.set_dim(74,50);
     m_box_add.set_gravity_x(grman::GravityX::Left);
     m_box_add.set_bg_color(JAUNECLAIR);
-    m_box_add.set_posy(320);
+    m_box_add.set_posy(331);
 
     m_box_add.add_child( m_bouton3 );
-    m_bouton3.set_frame(10,10,59,59);
+    m_bouton3.set_frame(7,7,64,41);
     m_bouton3.set_bg_color(JAUNESOMBRE);
 
     m_bouton3.add_child(m_bouton3_label);
@@ -233,17 +261,47 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     ///REMOVE
 
     m_tool_box.add_child(m_box_remove);
-    m_box_remove.set_dim(74,74);
+    m_box_remove.set_dim(74,50);
     m_box_remove.set_gravity_x(grman::GravityX::Left);
-    m_box_remove.set_posy(400);
+    m_box_remove.set_posy(386);
     m_box_remove.set_bg_color(ORANGECLAIR);
 
     m_box_remove.add_child( m_bouton4 );
-    m_bouton4.set_frame(10,10,59,59);
+    m_bouton4.set_frame(7,7,64,41);
     m_bouton4.set_bg_color(ORANGESOMBRE);
 
     m_bouton4.add_child(m_bouton4_label);
     m_bouton4_label.set_message("REMOVE");
+
+    ///FORTEMENT CONNEXE
+
+    m_tool_box.add_child(m_box_fconnexe);
+    m_box_fconnexe.set_dim(74,50);
+    m_box_fconnexe.set_gravity_x(grman::GravityX::Left);
+    m_box_fconnexe.set_posy(441);
+    m_box_fconnexe.set_bg_color(BLEUCLAIR);
+
+    m_box_fconnexe.add_child( m_bouton5 );
+    m_bouton5.set_frame(7,7,64,41);
+    m_bouton5.set_bg_color(BLEU);
+
+    m_bouton5.add_child(m_bouton5_label);
+    m_bouton5_label.set_message("F CON");
+
+    ///K CONNEXE
+
+    m_tool_box.add_child(m_box_kconnexe);
+    m_box_kconnexe.set_dim(74,50);
+    m_box_kconnexe.set_gravity_x(grman::GravityX::Left);
+    m_box_kconnexe.set_posy(496);
+    m_box_kconnexe.set_bg_color(BLEUCLAIR);
+
+    m_box_kconnexe.add_child( m_bouton5bis );
+    m_bouton5bis.set_frame(7,7,64,41);
+    m_bouton5bis.set_bg_color(BLEU);
+
+    m_bouton5bis.add_child(m_bouton5bis_label);
+    m_bouton5bis_label.set_message("K CON");
 
 
     m_top_box.add_child(m_main_box);
@@ -404,6 +462,8 @@ void Graph::make_example3()
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 void Graph::update()
 {
+    Graph g;
+
     if (!m_interface)
         return;
 
@@ -419,7 +479,8 @@ void Graph::update()
         elt.second.post_update();
     for (auto &elt : m_edges)
         elt.second.post_update();
-m_top_box.update();
+    m_top_box.update();
+
     if(m_interface -> m_bouton4.clicked())
     {
         Supprimer();
@@ -445,9 +506,51 @@ m_top_box.update();
         savecoord3(m_vertices);
     }
 
-     /*if (m_interface -> m_bouton1.clicked())
+    int a=1;
+    int b=1;
+    int c=1;
+
+    if (m_interface -> m_bouton1.clicked())
     {
-        menu2();
+        while(a==1)
+        {
+            //g.unload_graph();
+            g.make_example();
+            g.update();
+            grman::mettre_a_jour();
+        }
+    }
+
+    if (m_interface -> m_bouton1bis.clicked())
+    {
+        while(b==1)
+        {
+            //g.unload_graph();
+            g.make_example2();
+            g.update();
+            grman::mettre_a_jour();
+        }
+    }
+
+    if (m_interface -> m_bouton1ter.clicked())
+    {
+        while(c==1)
+        {
+            //g.unload_graph();
+            g.make_example3();
+            g.update();
+            grman::mettre_a_jour();
+        }
+    }
+
+    /*if (m_interface -> m_bouton5.clicked())
+    {
+
+    }
+
+    if (m_interface -> m_bouton5bis.clicked())
+    {
+
     }*/
 
 
@@ -494,6 +597,7 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
 
 
 }
+
 
 
 void Graph::savecoord1(std::map<int, Vertex> m_vertices)
@@ -593,6 +697,8 @@ void Graph::Supprimer()
         }
     }
 }
+
+
 void Graph::Ajouter1()
 {
     unsigned int n=0,sommet1,sommet2;
@@ -683,5 +789,64 @@ void Graph::test_remove_edge(int eidx)
     std::cout << m_edges.size() << std::endl;
 
 }
+
+/*void Graph::test_remove_vertex(int eidx)
+{
+    Vertex &remvert=m_vertices.at(eidx);
+    m_interface->m_main_box.remove_child(remvert.m_interface->m_top_box);
+    remvert.m_interface->m_select.set_value(false);
+    m_vertices_no[eidx]=remvert;
+    m_vertices.erase(eidx);
+    m_interface->m_second_box.add_child(remvert.m_interface->m_top_box);
+    remvert.m_interface->m_top_box.set_pos(remvert.m_interface->m_top_box.get_posx(),remvert.m_interface->m_top_box.get_posy()/4.5);
+}
+
+
+void Graph::suppr()
+{
+    bool sortie=false;
+    int eidx;
+    if (m_interface->m_delete_box.m_value==true)
+    {
+        m_interface->m_delete_box.m_value=false;
+        while(sortie!=true)
+        {
+            for(std::map<int,Edge>::iterator it = m_edges.begin(); it!=m_edges.end(); ++it)
+            {
+                if((m_vertices[it->second.m_from].m_interface->m_select.get_value()==1)||(m_vertices[it->second.m_to].m_interface->m_select.get_value()==1))
+                {
+                    eidx=it->first;
+                    test_remove_edge(eidx);
+                    sortie=false;
+                    if(m_nb_arcs==0)
+                    {
+                        sortie=true;
+                    }
+                }
+                else
+                {
+                    sortie=true;
+                }
+            }
+            for(std::map<int, Vertex>::iterator it = m_vertices.begin(); it != m_vertices.end(); it++)
+            {
+                if(it->second.m_interface->m_select.get_value())
+                {
+                    test_remove_vertex(it->first);
+                    sortie=false;
+                    if(m_vertices.size()==0)
+                    {
+                        sortie=true;
+                    }
+                    break;
+                }
+                else
+                {
+                    sortie=true;
+                }
+            }
+        };
+    }
+}*/
 
 

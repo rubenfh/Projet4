@@ -38,10 +38,12 @@ void menu()
 
     }
 }
+
 /*void menu2()
 {
     grman::init();
     grman::set_pictures_path("pics");
+
    /// Un exemple de graphe
     int choix1;
     Graph g;
@@ -84,13 +86,14 @@ int main()
     /// Un exemple de graphe
     int choix1;
 
+     std::cout<<"Quel Graphique souhaitez vous ouvrir en Premier?\n\n";
+
     do
     {
         std::cout<<"Choix : ";
         std::cin>>choix1;
     }
     while(choix1 < 1 || choix1 >3);
-
 
     switch(choix1)
     {

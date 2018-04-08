@@ -267,6 +267,15 @@ class GraphInterface
         grman::WidgetButton m_bouton1;
         grman::WidgetText m_bouton1_label;
 
+        grman::WidgetBox m_box_menu2;
+        grman::WidgetButton m_bouton1bis;
+        grman::WidgetText m_bouton1bis_label;
+
+        grman::WidgetBox m_box_menu3;
+        grman::WidgetButton m_bouton1ter;
+        grman::WidgetText m_bouton1ter_label;
+
+
         grman::WidgetBox m_box_sauve;
         grman::WidgetButton m_bouton2;
         grman::WidgetText m_bouton2_label;
@@ -286,6 +295,14 @@ class GraphInterface
         grman::WidgetBox m_box_remove;
         grman::WidgetButton m_bouton4;
         grman::WidgetText m_bouton4_label;
+
+        grman::WidgetBox m_box_fconnexe;
+        grman::WidgetButton m_bouton5;
+        grman::WidgetText m_bouton5_label;
+
+        grman::WidgetBox m_box_kconnexe;
+        grman::WidgetButton m_bouton5bis;
+        grman::WidgetText m_bouton5bis_label;
 
 
 
@@ -348,8 +365,10 @@ class Graph
 
         void Supprimer();
         void test_remove_edge(int eidx);
+        void test_remove_vertex(int eidx);
 
         void Ajouter1();
+        void suppr();
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();

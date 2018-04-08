@@ -1,7 +1,7 @@
 6 6
-0 30 373 67 lion.jpg
-1 60 54 112 Guepar.jpg
-2 50 198 298 Antilope.jpg
-3 10 398 298 facochere.jpg
-4 15 598 298 Hypopotame.jpg
-5 100 98 498 herbe.jpg
+0 30 367 61 lion.jpg
+1 60 74 88 Guepar.jpg
+2 50 192 292 Antilope.jpg
+3 10 392 292 facochere.jpg
+4 15 592 292 Hypopotame.jpg
+5 100 92 492 herbe.jpg
