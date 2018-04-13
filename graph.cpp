@@ -544,7 +544,7 @@ void Graph::update()
     if(m_interface->m_bouton5.clicked())
     {
         initMatriceAdj();
-        SCC();
+        fortementconnexe();
     }
     if (m_interface->m_bouton3bis.clicked())
     {
@@ -823,7 +823,7 @@ void Graph::supprimer1arrette()
             //test_remove_edge(m_edges[n]);
 
         }
-
+///supprime un sommet
 void Graph::supVertex()
 {   int n;
     Supprimer();
@@ -855,7 +855,7 @@ void Graph::initMatriceAdj()
 }
 
 ///aide à la composante fortement connexe
-void Graph::SCCutil(int u, int disc[], int low[], stack<int> *st,bool stackmember[])
+void Graph::fortementconnexeutil(int u, int disc[], int low[], stack<int> *st,bool stackmember[])
 {
 
 
@@ -875,7 +875,7 @@ void Graph::SCCutil(int u, int disc[], int low[], stack<int> *st,bool stackmembe
         // si v n'est pas encore appellé
         if (disc[v] == -1)
         {
-            SCCutil(v, disc, low, st, stackmember); //recursivité
+            fortementconnexeutil(v, disc, low, st, stackmember); //recursivité
             low[u]  = min(low[u], low[v]);
         }
 
@@ -903,7 +903,7 @@ void Graph::SCCutil(int u, int disc[], int low[], stack<int> *st,bool stackmembe
     }
 }
 ///composante fortement connexe
-void Graph::SCC()
+void Graph::fortementconnexe()
 {
     int* disc =new int [m_edges.size()];
     int* low = new int [m_edges.size()];
@@ -921,7 +921,7 @@ void Graph::SCC()
     {
         if (disc[i]==-1)
         {
-            SCCutil(i,disc,low,st,stackmember); //on appelle ssc util
+            fortementconnexeutil(i,disc,low,st,stackmember); //on appelle ssc util
         }
     }
 }

@@ -1,0 +1,156 @@
+\hypertarget{class_graph}{}\section{Graph Class Reference}
+\label{class_graph}\index{Graph@{Graph}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_a6d716090e2ae19abf6b40b5f1a7f7f68}{Graph}} (\mbox{\hyperlink{class_graph_interface}{Graph\+Interface}} $\ast$interface=nullptr)
+\item 
+\mbox{\Hypertarget{class_graph_ab7a69c10c16dc4ae88e1131c89fb7e26}\label{class_graph_ab7a69c10c16dc4ae88e1131c89fb7e26}} 
+void \mbox{\hyperlink{class_graph_ab7a69c10c16dc4ae88e1131c89fb7e26}{add\+\_\+interfaced\+\_\+vertex}} (int idx, double value, int x, int y, std\+::string pic\+\_\+name=\char`\"{}\char`\"{}, int pic\+\_\+idx=0)
+\begin{DoxyCompactList}\small\item\em Aide à l\textquotesingle{}ajout de sommets interfacés \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_aa824f04c8fd5a315f23f4af61db9c301}\label{class_graph_aa824f04c8fd5a315f23f4af61db9c301}} 
+void \mbox{\hyperlink{class_graph_aa824f04c8fd5a315f23f4af61db9c301}{add\+\_\+interfaced\+\_\+edge}} (int idx, int vert1, int vert2, double weight=0)
+\begin{DoxyCompactList}\small\item\em Aide à l\textquotesingle{}ajout d\textquotesingle{}arcs interfacés \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a139b0097551af1043a358500a52cce98}{make\+\_\+example}} ()
+\item 
+\mbox{\Hypertarget{class_graph_a4e1d2fde6dacd8aaf4e018636b7b06be}\label{class_graph_a4e1d2fde6dacd8aaf4e018636b7b06be}} 
+void {\bfseries make\+\_\+example2} ()
+\item 
+\mbox{\Hypertarget{class_graph_af6b103280e8983e5de884b4150631e03}\label{class_graph_af6b103280e8983e5de884b4150631e03}} 
+void {\bfseries make\+\_\+example3} ()
+\item 
+\mbox{\Hypertarget{class_graph_ab4b2f71c31f7fdd05f06284514c7b8d3}\label{class_graph_ab4b2f71c31f7fdd05f06284514c7b8d3}} 
+void \mbox{\hyperlink{class_graph_ab4b2f71c31f7fdd05f06284514c7b8d3}{savecoord1}} (std\+::map$<$ int, \mbox{\hyperlink{class_vertex}{Vertex}} $>$ m\+\_\+vertices)
+\begin{DoxyCompactList}\small\item\em sauvegarde dans l\textquotesingle{}ordre 1-\/2-\/3 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a43ae24f02eea3bb8ec268233385a93b5}\label{class_graph_a43ae24f02eea3bb8ec268233385a93b5}} 
+void {\bfseries savecoord2} (std\+::map$<$ int, \mbox{\hyperlink{class_vertex}{Vertex}} $>$ m\+\_\+vertices)
+\item 
+\mbox{\Hypertarget{class_graph_aa4980f438ae0498c0de4011ded54f35b}\label{class_graph_aa4980f438ae0498c0de4011ded54f35b}} 
+void {\bfseries savecoord3} (std\+::map$<$ int, \mbox{\hyperlink{class_vertex}{Vertex}} $>$ m\+\_\+vertices)
+\item 
+\mbox{\Hypertarget{class_graph_a0e291eb12b5361df8179f515a1b368de}\label{class_graph_a0e291eb12b5361df8179f515a1b368de}} 
+void \mbox{\hyperlink{class_graph_a0e291eb12b5361df8179f515a1b368de}{Supprimer}} ()
+\begin{DoxyCompactList}\small\item\em supprimer toutes les arrettes connectées à un sommet \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a121222434a99e73e95f70ce532364caa}{test\+\_\+remove\+\_\+edge}} (int eidx)
+\begin{DoxyCompactList}\small\item\em eidx index of edge to remove \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a1745ba8c62bbb4cf7838de85336723d0}\label{class_graph_a1745ba8c62bbb4cf7838de85336723d0}} 
+void \mbox{\hyperlink{class_graph_a1745ba8c62bbb4cf7838de85336723d0}{Ajouter1}} ()
+\begin{DoxyCompactList}\small\item\em ajouter une arrette \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a8b318c6e1af2aecbefa2956c837701eb}\label{class_graph_a8b318c6e1af2aecbefa2956c837701eb}} 
+void {\bfseries erase1edge} (int eidx)
+\item 
+\mbox{\Hypertarget{class_graph_ad07380dd642dca96afb0b1157f746a89}\label{class_graph_ad07380dd642dca96afb0b1157f746a89}} 
+void \mbox{\hyperlink{class_graph_ad07380dd642dca96afb0b1157f746a89}{addvertex}} ()
+\begin{DoxyCompactList}\small\item\em ajouter un sommet \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a64f4cbb0d391787badca0aa1f6baade5}\label{class_graph_a64f4cbb0d391787badca0aa1f6baade5}} 
+void \mbox{\hyperlink{class_graph_a64f4cbb0d391787badca0aa1f6baade5}{supprimer1arrette}} ()
+\begin{DoxyCompactList}\small\item\em supprimer une seule arrette \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a2a72bbc3f1e366cae92f07c3a207281c}\label{class_graph_a2a72bbc3f1e366cae92f07c3a207281c}} 
+void \mbox{\hyperlink{class_graph_a2a72bbc3f1e366cae92f07c3a207281c}{sup\+Vertex}} ()
+\begin{DoxyCompactList}\small\item\em supprime un sommet \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_aa57d61fefcb048bf85268363dd9e522d}\label{class_graph_aa57d61fefcb048bf85268363dd9e522d}} 
+void \mbox{\hyperlink{class_graph_aa57d61fefcb048bf85268363dd9e522d}{init\+Matrice\+Adj}} ()
+\begin{DoxyCompactList}\small\item\em Matrice d\textquotesingle{}adjaceance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a5945ba1c9cbf9f0358e53e110c232973}\label{class_graph_a5945ba1c9cbf9f0358e53e110c232973}} 
+void \mbox{\hyperlink{class_graph_a5945ba1c9cbf9f0358e53e110c232973}{fortementconnexe}} ()
+\begin{DoxyCompactList}\small\item\em composante fortement connexe \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_ab0cc5dfaee2bee0d9607e5d11a8f5f20}\label{class_graph_ab0cc5dfaee2bee0d9607e5d11a8f5f20}} 
+void \mbox{\hyperlink{class_graph_ab0cc5dfaee2bee0d9607e5d11a8f5f20}{fortementconnexeutil}} (int u, int disc\mbox{[}$\,$\mbox{]}, int low\mbox{[}$\,$\mbox{]}, std\+::stack$<$ int $>$ $\ast$st, bool stackmember\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em aide à la composante fortement connexe \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a110c511e03056bc29bea537a80632542}{Partie\+Fonctionnelle}} ()
+\begin{DoxyCompactList}\small\item\em 3ème partie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a25f3172c1ebaa5f0a6c2c62ddfdd611d}{pred}} ()
+\begin{DoxyCompactList}\small\item\em tentatives \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a97b4fe3e0f119971649ed33e3c364cde}\label{class_graph_a97b4fe3e0f119971649ed33e3c364cde}} 
+void \mbox{\hyperlink{class_graph_a97b4fe3e0f119971649ed33e3c364cde}{update}} ()
+\begin{DoxyCompactList}\small\item\em La méthode update à appeler dans la boucle de jeu pour les graphes avec interface. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a8ab42853342db4551c3342fdb7aeaad0}\label{class_graph_a8ab42853342db4551c3342fdb7aeaad0}} 
+void {\bfseries setepais} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_graph_af463872b54fda33f27daf5e1170786d4}\label{class_graph_af463872b54fda33f27daf5e1170786d4}} 
+std\+::list$<$ int $>$ $\ast$ {\bfseries adj}
+\item 
+\mbox{\Hypertarget{class_graph_aefec07cfe38c795eb73a499eb1a6f77a}\label{class_graph_aefec07cfe38c795eb73a499eb1a6f77a}} 
+std\+::map$<$ int, std\+::vector$<$ int $>$ $>$ {\bfseries m\+\_\+pred}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_graph_ac93b7cbbd1099ea02c66e418d388b01d}\label{class_graph_ac93b7cbbd1099ea02c66e418d388b01d}} 
+class {\bfseries Graph\+Interface}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph_a6d716090e2ae19abf6b40b5f1a7f7f68}\label{class_graph_a6d716090e2ae19abf6b40b5f1a7f7f68}} 
+\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph_interface}{Graph\+Interface}} $\ast$}]{interface = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Les constructeurs sont à compléter selon vos besoin... Ici on ne donne qu\textquotesingle{}un seul constructeur qui peut utiliser une interface 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph_a139b0097551af1043a358500a52cce98}\label{class_graph_a139b0097551af1043a358500a52cce98}} 
+\index{Graph@{Graph}!make\+\_\+example@{make\+\_\+example}}
+\index{make\+\_\+example@{make\+\_\+example}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{make\+\_\+example()}{make\_example()}}
+{\footnotesize\ttfamily void Graph\+::make\+\_\+example (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Méthode spéciale qui construit un graphe arbitraire (démo) Voir implémentationC\+: Falvert\textbackslash{}\+Documents\textbackslash{}\+Projet\+Info4\textbackslash{}graph.\+cpp dans le .cpp Cette méthode est à enlever et remplacer par un système de chargement de fichiers par exemple.
+
+Méthode spéciale qui construit un graphe arbitraire (démo) Cette méthode est à enlever et remplacer par un système de chargement de fichiers par exemple. Bien sûr on ne veut pas que vos graphes soient construits \char`\"{}à la main\char`\"{} dans le code comme ça. Les sommets doivent être définis avant les arcs
+
+Les arcs doivent être définis entre des sommets qui existent ! \mbox{\Hypertarget{class_graph_a110c511e03056bc29bea537a80632542}\label{class_graph_a110c511e03056bc29bea537a80632542}} 
+\index{Graph@{Graph}!Partie\+Fonctionnelle@{Partie\+Fonctionnelle}}
+\index{Partie\+Fonctionnelle@{Partie\+Fonctionnelle}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Partie\+Fonctionnelle()}{PartieFonctionnelle()}}
+{\footnotesize\ttfamily void Graph\+::\+Partie\+Fonctionnelle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+3ème partie 
+
+valeur calculé de l\textquotesingle{}indice \mbox{\Hypertarget{class_graph_a25f3172c1ebaa5f0a6c2c62ddfdd611d}\label{class_graph_a25f3172c1ebaa5f0a6c2c62ddfdd611d}} 
+\index{Graph@{Graph}!pred@{pred}}
+\index{pred@{pred}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{pred()}{pred()}}
+{\footnotesize\ttfamily void Graph\+::pred (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+tentatives 
+
+on ajoute un sommet au tableau de prédécesseur \mbox{\Hypertarget{class_graph_a121222434a99e73e95f70ce532364caa}\label{class_graph_a121222434a99e73e95f70ce532364caa}} 
+\index{Graph@{Graph}!test\+\_\+remove\+\_\+edge@{test\+\_\+remove\+\_\+edge}}
+\index{test\+\_\+remove\+\_\+edge@{test\+\_\+remove\+\_\+edge}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{test\+\_\+remove\+\_\+edge()}{test\_remove\_edge()}}
+{\footnotesize\ttfamily void Graph\+::test\+\_\+remove\+\_\+edge (\begin{DoxyParamCaption}\item[{int}]{eidx }\end{DoxyParamCaption})}
+
+
+
+eidx index of edge to remove 
+
+référence vers le \mbox{\hyperlink{class_edge}{Edge}} à enlever
+
+Tester la cohérence \+: nombre d\textquotesingle{}arc entrants et sortants des sommets 1 et 2
+
+test \+: on a bien des éléments interfacés
+
+Ne pas oublier qu\textquotesingle{}on a fait ça à l\textquotesingle{}ajout de l\textquotesingle{}arc \+:
+
+Le new \mbox{\hyperlink{class_edge_interface}{Edge\+Interface}} ne nécessite pas de delete car on a un shared\+\_\+ptr Le \mbox{\hyperlink{class_edge}{Edge}} ne nécessite pas non plus de delete car on n\textquotesingle{}a pas fait de new (sémantique par valeur) mais il faut bien enlever le conteneur d\textquotesingle{}interface m\+\_\+top\+\_\+edge de l\textquotesingle{}arc de la main\+\_\+box du graphe ~\newline
+~\newline
+~\newline
+ Il reste encore à virer l\textquotesingle{}arc supprimé de la liste des entrants et sortants des 2 sommets to et from ! References sur les listes de edges des sommets from et to ~\newline
+~\newline
+ Le \mbox{\hyperlink{class_edge}{Edge}} ne nécessite pas non plus de delete car on n\textquotesingle{}a pas fait de new (sémantique par valeur) Il suffit donc de supprimer l\textquotesingle{}entrée de la map pour supprimer à la fois l\textquotesingle{}\mbox{\hyperlink{class_edge}{Edge}} et le \mbox{\hyperlink{class_edge_interface}{Edge\+Interface}} mais malheureusement ceci n\textquotesingle{}enlevait pas automatiquement l\textquotesingle{}interface top\+\_\+edge en tant que child de main\+\_\+box ! ~\newline
+ Tester la cohérence \+: nombre d\textquotesingle{}arc entrants et sortants des sommets 1 et 2 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+graph.\+h\item 
+graph.\+cpp\end{DoxyCompactItemize}

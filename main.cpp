@@ -1,7 +1,15 @@
 #include "grman/grman.h"
 #include <iostream>
 
+///https://www.geeksforgeeks.org/
+///https://openclassrooms.com/
+///https://stackoverflow.com/questions/12975341/to-string-is-not-a-member-of-std-says-g-mingw
+///https://stackoverflow.com/
+
+
 #include "graph.h"
+
+
 /*void menu()
 {
     BITMAP *page;
@@ -101,8 +109,9 @@ int main()
 
     /// Un exemple de graphe
     int choix1;
-    Graph g;
+    Graph g; //création d'un objet g de classe graph
 
+    ///menu
     do
     {
         std::cout<<"Choix : ";
@@ -132,7 +141,7 @@ int main()
     {
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
         g.update();
-       if(key[KEY_SPACE]) g.PartieFonctionnelle();
+        if(key[KEY_SPACE]) g.PartieFonctionnelle();
 
         /// Mise à jour générale (clavier/souris/buffer etc...)
         grman::mettre_a_jour();

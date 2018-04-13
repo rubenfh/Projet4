@@ -1,0 +1,96 @@
+\hypertarget{class_vertex}{}\section{Vertex Class Reference}
+\label{class_vertex}\index{Vertex@{Vertex}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vertex_ae65f77f82f641cbad917f3fb161de43b}{Vertex}} (double value=0, \mbox{\hyperlink{class_vertex_interface}{Vertex\+Interface}} $\ast$interface=nullptr)
+\item 
+void \mbox{\hyperlink{class_vertex_adc6514220f5501e790a912f7d9c0d720}{pre\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em Gestion du \mbox{\hyperlink{class_vertex}{Vertex}} avant l\textquotesingle{}appel à l\textquotesingle{}interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vertex_a68b740256d930792dccb31072e96f85f}{post\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em Gestion du \mbox{\hyperlink{class_vertex}{Vertex}} après l\textquotesingle{}appel à l\textquotesingle{}interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_vertex_a4222de9ee3a0c509acf9ba344b79c1b2}\label{class_vertex_a4222de9ee3a0c509acf9ba344b79c1b2}} 
+int {\bfseries m\+\_\+K}
+\item 
+\mbox{\Hypertarget{class_vertex_ae9899fdbddf2e8ea1d91972423878445}\label{class_vertex_ae9899fdbddf2e8ea1d91972423878445}} 
+int {\bfseries m\+\_\+r}
+\item 
+\mbox{\Hypertarget{class_vertex_a040667e8e18f720835a98dce6defad49}\label{class_vertex_a040667e8e18f720835a98dce6defad49}} 
+std\+::vector$<$ int $>$ {\bfseries m\+\_\+predecesseur}
+\item 
+\mbox{\Hypertarget{class_vertex_acfaff23fd7e3f20ef182e174dcd5c887}\label{class_vertex_acfaff23fd7e3f20ef182e174dcd5c887}} 
+bool \mbox{\hyperlink{class_vertex_acfaff23fd7e3f20ef182e174dcd5c887}{m\+\_\+marqueur}}
+\begin{DoxyCompactList}\small\item\em on rajoute un compteur et un marqueur \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vertex_aec76fbfecbacd83445307864193f9c4b}\label{class_vertex_aec76fbfecbacd83445307864193f9c4b}} 
+int {\bfseries m\+\_\+cmpt}
+\item 
+\mbox{\Hypertarget{class_vertex_aa3bb0f769afb251845c6329bf60eec2d}\label{class_vertex_aa3bb0f769afb251845c6329bf60eec2d}} 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_vertex_aa3bb0f769afb251845c6329bf60eec2d}{m\+\_\+in}}
+\begin{DoxyCompactList}\small\item\em liste des indices des arcs arrivant au sommet \+: accès aux prédécesseurs \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vertex_a7c313e06540fa85329a1844d3a1fafcf}\label{class_vertex_a7c313e06540fa85329a1844d3a1fafcf}} 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_vertex_a7c313e06540fa85329a1844d3a1fafcf}{m\+\_\+out}}
+\begin{DoxyCompactList}\small\item\em liste des indices des arcs partant du sommet \+: accès aux successeurs \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vertex_a366a2ce5705bff31754fdc878494f8c8}\label{class_vertex_a366a2ce5705bff31754fdc878494f8c8}} 
+double \mbox{\hyperlink{class_vertex_a366a2ce5705bff31754fdc878494f8c8}{m\+\_\+value}}
+\begin{DoxyCompactList}\small\item\em un exemple de donnée associée à l\textquotesingle{}arc, on peut en ajouter d\textquotesingle{}autres... \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vertex_a248dd465e7f1b50f85a74023e643800a}\label{class_vertex_a248dd465e7f1b50f85a74023e643800a}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_vertex_interface}{Vertex\+Interface}} $>$ \mbox{\hyperlink{class_vertex_a248dd465e7f1b50f85a74023e643800a}{m\+\_\+interface}} = nullptr
+\begin{DoxyCompactList}\small\item\em le P\+O\+I\+N\+T\+E\+UR sur l\textquotesingle{}interface associée, nullptr -\/$>$ pas d\textquotesingle{}interface \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_vertex_afab89afd724f1b07b1aaad6bdc61c47a}\label{class_vertex_afab89afd724f1b07b1aaad6bdc61c47a}} 
+class {\bfseries Graph}
+\item 
+\mbox{\Hypertarget{class_vertex_a1748f97d45d6ef457da5e2f88aac4899}\label{class_vertex_a1748f97d45d6ef457da5e2f88aac4899}} 
+class {\bfseries Vertex\+Interface}
+\item 
+\mbox{\Hypertarget{class_vertex_ad2c8ba04c9d9989ccbf3c5aba267a3d7}\label{class_vertex_ad2c8ba04c9d9989ccbf3c5aba267a3d7}} 
+class {\bfseries Edge}
+\item 
+\mbox{\Hypertarget{class_vertex_a8e1edfb3728013ee10d1d7fb1fb89585}\label{class_vertex_a8e1edfb3728013ee10d1d7fb1fb89585}} 
+class {\bfseries Edge\+Interface}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_vertex_ae65f77f82f641cbad917f3fb161de43b}\label{class_vertex_ae65f77f82f641cbad917f3fb161de43b}} 
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection{\texorpdfstring{Vertex()}{Vertex()}}
+{\footnotesize\ttfamily Vertex\+::\+Vertex (\begin{DoxyParamCaption}\item[{double}]{value = {\ttfamily 0},  }\item[{\mbox{\hyperlink{class_vertex_interface}{Vertex\+Interface}} $\ast$}]{interface = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Les constructeurs sont à compléter selon vos besoin... Ici on ne donne qu\textquotesingle{}un seul constructeur qui peut utiliser une interface 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_vertex_a68b740256d930792dccb31072e96f85f}\label{class_vertex_a68b740256d930792dccb31072e96f85f}} 
+\index{Vertex@{Vertex}!post\+\_\+update@{post\+\_\+update}}
+\index{post\+\_\+update@{post\+\_\+update}!Vertex@{Vertex}}
+\subsubsection{\texorpdfstring{post\+\_\+update()}{post\_update()}}
+{\footnotesize\ttfamily void Vertex\+::post\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gestion du \mbox{\hyperlink{class_vertex}{Vertex}} après l\textquotesingle{}appel à l\textquotesingle{}interface. 
+
+Reprendre la valeur du slider dans la donnée m\+\_\+value locale \mbox{\Hypertarget{class_vertex_adc6514220f5501e790a912f7d9c0d720}\label{class_vertex_adc6514220f5501e790a912f7d9c0d720}} 
+\index{Vertex@{Vertex}!pre\+\_\+update@{pre\+\_\+update}}
+\index{pre\+\_\+update@{pre\+\_\+update}!Vertex@{Vertex}}
+\subsubsection{\texorpdfstring{pre\+\_\+update()}{pre\_update()}}
+{\footnotesize\ttfamily void Vertex\+::pre\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gestion du \mbox{\hyperlink{class_vertex}{Vertex}} avant l\textquotesingle{}appel à l\textquotesingle{}interface. 
+
+\mbox{\hyperlink{class_vertex}{Vertex}} étant géré par \mbox{\hyperlink{class_graph}{Graph}} ce sera la méthode update de graph qui appellera le pre\+\_\+update et post\+\_\+update de \mbox{\hyperlink{class_vertex}{Vertex}} (pas directement la boucle de jeu) Voir l\textquotesingle{}implémentation \mbox{\hyperlink{class_graph_a97b4fe3e0f119971649ed33e3c364cde}{Graph\+::update}} dans le .cpp Copier la valeur locale de la donnée m\+\_\+value vers le slider associé
+
+Copier la valeur locale de la donnée m\+\_\+value vers le label sous le slider 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+graph.\+h\item 
+graph.\+cpp\end{DoxyCompactItemize}

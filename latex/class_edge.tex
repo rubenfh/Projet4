@@ -1,0 +1,63 @@
+\hypertarget{class_edge}{}\section{Edge Class Reference}
+\label{class_edge}\index{Edge@{Edge}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_edge_aacbf2530aa6f79fe273354bfbafa0c62}{Edge}} (double weight=0, \mbox{\hyperlink{class_edge_interface}{Edge\+Interface}} $\ast$interface=nullptr)
+\item 
+void \mbox{\hyperlink{class_edge_ab9f1fdf7c47051d419ea5b73bed0e21d}{pre\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em Gestion du \mbox{\hyperlink{class_edge}{Edge}} avant l\textquotesingle{}appel à l\textquotesingle{}interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_a4d172425eac4e94c78ab1bd66ba48d50}{post\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em Gestion du \mbox{\hyperlink{class_edge}{Edge}} après l\textquotesingle{}appel à l\textquotesingle{}interface. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_edge_a47b4d40cda53f9181a5160058cafbc66}\label{class_edge_a47b4d40cda53f9181a5160058cafbc66}} 
+void {\bfseries setepais} (float \+\_\+x)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_edge_afab89afd724f1b07b1aaad6bdc61c47a}\label{class_edge_afab89afd724f1b07b1aaad6bdc61c47a}} 
+class {\bfseries Graph}
+\item 
+\mbox{\Hypertarget{class_edge_a8e1edfb3728013ee10d1d7fb1fb89585}\label{class_edge_a8e1edfb3728013ee10d1d7fb1fb89585}} 
+class {\bfseries Edge\+Interface}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_edge_aacbf2530aa6f79fe273354bfbafa0c62}\label{class_edge_aacbf2530aa6f79fe273354bfbafa0c62}} 
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{Edge()}{Edge()}}
+{\footnotesize\ttfamily Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{double}]{weight = {\ttfamily 0},  }\item[{\mbox{\hyperlink{class_edge_interface}{Edge\+Interface}} $\ast$}]{interface = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Les constructeurs sont à compléter selon vos besoin... Ici on ne donne qu\textquotesingle{}un seul constructeur qui peut utiliser une interface 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_edge_a4d172425eac4e94c78ab1bd66ba48d50}\label{class_edge_a4d172425eac4e94c78ab1bd66ba48d50}} 
+\index{Edge@{Edge}!post\+\_\+update@{post\+\_\+update}}
+\index{post\+\_\+update@{post\+\_\+update}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{post\+\_\+update()}{post\_update()}}
+{\footnotesize\ttfamily void Edge\+::post\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gestion du \mbox{\hyperlink{class_edge}{Edge}} après l\textquotesingle{}appel à l\textquotesingle{}interface. 
+
+Reprendre la valeur du slider dans la donnée m\+\_\+weight locale \mbox{\Hypertarget{class_edge_ab9f1fdf7c47051d419ea5b73bed0e21d}\label{class_edge_ab9f1fdf7c47051d419ea5b73bed0e21d}} 
+\index{Edge@{Edge}!pre\+\_\+update@{pre\+\_\+update}}
+\index{pre\+\_\+update@{pre\+\_\+update}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{pre\+\_\+update()}{pre\_update()}}
+{\footnotesize\ttfamily void Edge\+::pre\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gestion du \mbox{\hyperlink{class_edge}{Edge}} avant l\textquotesingle{}appel à l\textquotesingle{}interface. 
+
+\mbox{\hyperlink{class_edge}{Edge}} étant géré par \mbox{\hyperlink{class_graph}{Graph}} ce sera la méthode update de graph qui appellera le pre\+\_\+update et post\+\_\+update de \mbox{\hyperlink{class_edge}{Edge}} (pas directement la boucle de jeu) Voir l\textquotesingle{}implémentation \mbox{\hyperlink{class_graph_a97b4fe3e0f119971649ed33e3c364cde}{Graph\+::update}} dans le .cpp Copier la valeur locale de la donnée m\+\_\+weight vers le slider associé
+
+Copier la valeur locale de la donnée m\+\_\+weight vers le label sous le slider 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+graph.\+h\item 
+graph.\+cpp\end{DoxyCompactItemize}
